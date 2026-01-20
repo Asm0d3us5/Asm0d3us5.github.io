@@ -1,3 +1,25 @@
-theme: jekyll-theme-hacker
-title: Mauro's Cybersecurity Portfolio
-description: SOC • Forensics • Blue Team Projects
+title: Mauro Sunda
+description: Cybersecurity Portfolio | DFIR | Network Security | CTFs
+email: your@email.com
+
+remote_theme: "mmistakes/minimal-mistakes"
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+author:
+  name: Mauro Sunda
+  avatar: "/assets/images/profile.jpg"
+  bio: "Cybersecurity student passionate about DFIR, CTFs, and security research."
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+
