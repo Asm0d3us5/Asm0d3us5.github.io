@@ -4,6 +4,8 @@ title: Mauro Sunda | Cybersecurity Portfolio
 
 # 👋 Hi, I'm Mauro
 
+<img src="/assets/images/profile.jpg" width="180" style="border-radius: 50%;">
+
 Cybersecurity student with hands-on experience in SOC analysis, digital forensics, and blue team labs.  
 SOC Level 1 (TryHackMe Top 1%) | DUCA Member | Aspiring Cyber Security Analyst
 
