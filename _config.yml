@@ -2,7 +2,7 @@ title: Mauro Sunda
 description: Cybersecurity Portfolio | DFIR | Network Security | CTFs
 email: your@email.com
 
-remote_theme: "mmistakes/minimal-mistakes"
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 plugins:
   - jekyll-remote-theme
