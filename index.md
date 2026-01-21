@@ -41,3 +41,5 @@ I'm a cybersecurity student passionate about:
 ## 📫 Contact
 - GitHub: https://github.com/Asm0d3us5
 - LinkedIn: ---
+
+> This portfolio is a living project and will continue to evolve as I grow in cybersecurity <
