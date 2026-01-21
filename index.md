@@ -10,24 +10,22 @@ Cybersecurity student with hands-on experience in SOC analysis, digital forensic
 SOC Level 1 (TryHackMe Top 1%) | DUCA Member | Aspiring Cyber Security Analyst
 
 ---
+I'm a cybersecurity student passionate about:
+- 🔐 Digital Forensics  
+- 🌐 Network Security  
+- 🧪 CTF challenges  
+- ☁️ Cloud & Virtual Forensics  
 
-## 🔐 Projects
+## 📌 What you'll find here
+- Write-ups of my cybersecurity projects  
+- Blog posts about tools and techniques  
+- Labs and experiments  
+- Learning journey  
 
-### Network Forensics Investigation
-- Analysed PCAP traffic to detect suspicious behaviour and documented findings.
-- Used Wireshark and tcpdump to identify attack patterns.
-
-### USB Forensics Case Study
-- Recovered deleted files using Autopsy and Foremost.
-- Analysed metadata and timelines to support investigation conclusions.
-
-### SOC Alert Triage Labs
-- Investigated simulated alerts using Splunk-style dashboards.
-- Mapped activity to MITRE ATT&CK techniques.
-
-### Wireshark Traffic Analysis
-- Inspected DNS, HTTP, and suspicious encrypted traffic.
-- Identified anomalies and produced structured reports.
+## 📂 Explore
+- 👉 [Projects](projects.md)  
+- 👉 [Blog](blog.md)  
+- 👉 [About Me](about.md)
 
 ---
 
