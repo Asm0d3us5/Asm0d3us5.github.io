@@ -1,45 +1,48 @@
 ---
 title: Mauro Sunda | Cybersecurity Portfolio
 ---
-
-# 👋 Hi, I'm Mauro
-
-<img src="/assets/images/profile.jpg" width="180" style="border-radius: 50%;">
-
-Cybersecurity student with hands-on experience in SOC analysis, digital forensics, and blue team labs.  
-SOC Level 1 (TryHackMe Top 1%) | DUCA Member | Aspiring Cyber Security Analyst
-
 ---
-I'm a cybersecurity student passionate about:
-- 🔐 Digital Forensics  
-- 🌐 Network Security  
-- 🧪 CTF challenges  
-- ☁️ Cloud & Virtual Forensics  
+layout: splash
+author_profile: false
 
-## 📌 What you'll find here
-- Write-ups of my cybersecurity projects  
-- Blog posts about tools and techniques  
-- Labs and experiments  
-- Learning journey  
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.6"
+  overlay_image: /assets/images/banner.jpg
 
-## 📂 Explore
-- 👉 [Projects](projects.md)  
-- 👉 [Blog](blog.md)  
-- 👉 [About Me](about.md)
+excerpt: >
+  Cybersecurity student focused on Digital Forensics, Incident Response,
+  Network Security, and hands-on security labs.
 
+feature_row:
+  - image_path: /assets/images/project1.jpg
+    alt: "Digital Forensics"
+    title: "Digital Forensics"
+    excerpt: "USB analysis, hash verification, file recovery, password cracking."
+    url: /projects/
+    btn_label: "View Projects"
+    btn_class: "btn--primary"
+
+  - image_path: /assets/images/project2.jpg
+    alt: "CTF"
+    title: "CTF & Labs"
+    excerpt: "TryHackMe, custom labs, tooling experiments."
+    url: /blog/
+    btn_label: "Read Writeups"
+    btn_class: "btn--primary"
+
+  - image_path: /assets/images/project3.jpg
+    alt: "Machine Learning"
+    title: "Security & ML"
+    excerpt: "Fraud detection, anomaly detection, model evaluation."
+    url: /projects/
+    btn_label: "Explore Work"
+    btn_class: "btn--primary"
 ---
 
-## 🛠 Tools & Skills
-- SIEM (Splunk-style), Windows Event Logs, Sysmon  
-- Wireshark, Autopsy, Foremost  
-- Linux, Kali, basic Bash  
-- Incident response fundamentals  
-- MITRE ATT&CK  
+## 👋 Hi, I'm Mauro
 
----
+I'm a cybersecurity student passionate about building real skills through hands-on labs, forensic analysis, and continuous learning.
 
-## 📫 Contact
-- GitHub: https://github.com/Asm0d3us5
-- LinkedIn: ---
+{% include feature_row %}
 
-> This portfolio is a living project and will continue to evolve as I grow in cybersecurity <
