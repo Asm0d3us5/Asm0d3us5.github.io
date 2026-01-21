@@ -1,7 +1,4 @@
 ---
-title: Mauro Sunda | Cybersecurity Portfolio
----
----
 layout: splash
 author_profile: false
 
