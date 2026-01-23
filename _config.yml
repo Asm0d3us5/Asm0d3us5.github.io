@@ -1,6 +1,6 @@
 title: Mauro Sunda
 description: Cybersecurity Portfolio | DFIR | Network Security | CTFs
-email: your@email.com
+email: MauroSunda@protonmail.com
 
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
@@ -23,4 +23,14 @@ defaults:
     values:
       layout: single
       author_profile: true
-
+      
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/Asm0d3us5"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "www.linkedin.com/in/mauro-sunda-29aa02263"
+      
+copyright: "© 2026 Mauro Sunda. All rights reserved."
