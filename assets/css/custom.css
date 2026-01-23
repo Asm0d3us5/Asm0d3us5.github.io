@@ -1,1 +1,48 @@
+body {
+  margin: 0;
+}
+
+.journal-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.custom-sidebar {
+  width: 300px;
+  background: #111;
+  color: #fff;
+  padding: 2rem;
+  position: fixed;
+  height: 100vh;
+}
+
+.sidebar-avatar {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.custom-sidebar h2 {
+  margin-top: 0.5rem;
+}
+
+.sidebar-bio {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.sidebar-social a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Main content */
+.journal-content {
+  margin-left: 300px;
+  padding: 3rem;
+  max-width: 900px;
+}
 
