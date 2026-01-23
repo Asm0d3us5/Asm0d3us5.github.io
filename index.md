@@ -1,6 +1,8 @@
 ---
 layout: splash
 author_profile: false
+sidebar: false
+--- 
 
 header:
   overlay_color: "#000"
