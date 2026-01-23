@@ -1,26 +1,40 @@
 ---
-layout: null
+layout: default
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% include head.html %}
-  <link rel="stylesheet" href="/assets/css/custom.css">
-</head>
-
-<body>
 
 <div class="journal-layout">
 
-  {% include custom-sidebar.html %}
+  <!-- LEFT PANEL -->
+  <aside class="journal-sidebar">
+    <div class="journal-overlay">
+      <div class="journal-sidebar-inner">
+        <h1 class="site-title">Mauro Sunda</h1>
+        <p class="site-tagline">
+          Cybersecurity student documenting projects, DFIR labs and research.
+        </p>
 
+        <nav class="journal-nav">
+          <a href="/">Home</a>
+          <a href="/posts/">Posts</a>
+          <a href="/projects/">Projects</a>
+          <a href="/about/">About</a>
+        </nav>
+
+        <div class="journal-social">
+          <a href="https://github.com/Asm0d3us5">GitHub</a>
+          <a href="https://linkedin.com/in/mauro-sunda-29aa02263">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- RIGHT CONTENT -->
   <main class="journal-content">
-    {{ content }}
+    <div class="journal-inner">
+      {{ content }}
+    </div>
   </main>
 
 </div>
 
-</body>
-</html>
 
