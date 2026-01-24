@@ -7,3 +7,5 @@ header:
   image: /assets/images/usb.jpg
   teaser: /assets/images/usb.jpg
 ---
+
+## Example 1 of blog article 
