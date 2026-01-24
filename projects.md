@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Projects
-permalink: /_projects/
+permalink: /projects/
 ---
 
 ## Portfolio Projects
