@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: 
+title: Mauro Sunda | Cybersecurity Portfolio
 ---
 
 ## Hi, I'm Mauro 👋
