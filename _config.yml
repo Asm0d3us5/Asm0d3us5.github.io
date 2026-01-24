@@ -18,13 +18,18 @@ author:
   avatar: "/assets/images/profile.jpg"
   bio: "Cybersecurity student passionate about DFIR, CTFs, and security research."
 
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  
+
 defaults:
   - scope:
       path: ""
-      type: posts
+      type: projects
     values:
-      layout: single
-      author_profile: true
+      layout: project
 
 header_pages:
   - index.md
