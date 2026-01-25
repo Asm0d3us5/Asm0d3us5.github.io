@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: home
+title: Cybersecurity | Portfolio 
 header:
   overlay_image: /assets/images/banner.jpg
   overlay_color: "#111"
