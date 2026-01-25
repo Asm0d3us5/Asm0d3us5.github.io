@@ -29,7 +29,9 @@ This site documents my projects, research, and hands-on labs.
 ## Latest Writing
 
 {% for post in site.posts limit:3 %}
+
 - [{{ post.title }}]({{ post.url }})
+  
 {% endfor %}
 
 
