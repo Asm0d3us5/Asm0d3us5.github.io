@@ -2,33 +2,46 @@
 layout: default
 ---
 
-<div class="home-hero">
+<style>
+.home-hero {
+  display: flex;
+  min-height: 100vh;
+}
 
-  <div class="hero-left">
-   <img src="{{ page.hero_image }}" alt="Hero image">
-  </div>
+.hero-left {
+  width: 40%;
+  background-image: url('{{ page.hero_image }}');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+}
+
+.hero-right {
+  margin-left: 40%;
+  width: 60%;
+  padding: 4rem;
+}
+</style>
+
+<div class="home-hero">
+  <div class="hero-left"></div>
 
   <div class="hero-right">
     <h1>{{ site.title }}</h1>
-    <p class="hero-bio">{{ site.description }}</p>
+    <p>{{ site.description }}</p>
 
-    <div class="hero-buttons">
-      <a href="/projects/" class="btn">Projects</a>
-      <a href="/blog/" class="btn btn--primary">Blog</a>
-    </div>
-
-    <h2>Latest posts</h2>
+    <h2>Latest Posts</h2>
     <ul>
-      {% for post in site.posts limit:3 %}
-        <li>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <small>{{ post.date | date: "%b %d, %Y" }}</small>
-        </li>
+      {% for post in site.posts limit:5 %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}
     </ul>
   </div>
-
 </div>
+
 
 
 
