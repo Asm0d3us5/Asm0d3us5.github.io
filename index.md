@@ -1,7 +1,10 @@
 ---
-layout: default
+layout: splash
 title: home
-hero_image: /assets/images/banner.jpg
+header:
+  overlay_image: /assets/images/banner.jpg
+  overlay_color: "#111"
+  overlay_filter: "0.5"
 ---
 
 ## Hi, I'm Mauro 👋
