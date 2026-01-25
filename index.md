@@ -29,8 +29,3 @@ This site documents my projects, research, and hands-on labs.
 - [{{ post.title }}]({{ post.url }})
 {% endfor %}
 
-[Read the blog →](/blog/)
-
-
-
-
