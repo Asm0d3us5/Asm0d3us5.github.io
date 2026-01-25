@@ -1,26 +1,35 @@
 ---
 layout: splash
-title: Home
+title: home
 header:
   overlay_image: /assets/images/banner.jpg
   overlay_color: "#111"
   overlay_filter: "0.6"
-feature_row:
-  - title: Projects
-    image_path: /assets/images/usb.jpg
-    url: /projects/
-    btn_label: Projects
-    btn_class: "btn--primary"
-  - title: Blog
-    image_path: /assets/images/banner.jpg
-    url: /blog/
-    btn_label: Blog
-    btn_class: "btn--primary"
 ---
 
-## 👋 Hi, I’m Mauro
+## Hi, I'm Mauro 👋
 
-Cybersecurity student passionate about DFIR, Network Security, and CTFs.
+Cybersecurity student passionate about DFIR, Network Security, and CTFs.  
 This site documents my projects, research, and hands-on labs.
+
+---
+
+## Featured Projects
+
+{% assign featured = site.projects | slice: 0, 2 %}
+{% for project in featured %}
+### [{{ project.title }}]({{ project.url }})
+{{ project.excerpt | strip_html | truncate: 120 }}
+{% endfor %}
+
+[View all projects →](/projects/)
+
+---
+
+## Latest Writing
+
+{% for post in site.posts limit:3 %}
+- [{{ post.title }}]({{ post.url }})
+{% endfor %}
 
 
