@@ -10,7 +10,7 @@ permalink: /projects/
 ### [{{ project.title }}]({{ project.url }})
 
 {% if project.image %}
-<img src="{{ project.image }}" style="border-radius:10px;margin-bottom:0.5rem;">
+<img src="{{ project.image }}" class="portfolio-image">
 {% endif %}
 
 {% if project.tags %}
