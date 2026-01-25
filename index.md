@@ -1,5 +1,5 @@
 ---
-layout: home-custom
+layout: default
 title: home
 hero_image: /assets/images/banner.jpg
 ---
