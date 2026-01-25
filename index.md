@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Mauro Sunda | Cybersecurity Portfolio
+hero_image : /assets/images/banner.jpg
 ---
 
 ## Hi, I'm Mauro 👋
