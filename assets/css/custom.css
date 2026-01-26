@@ -110,9 +110,7 @@
 .project-card img {
   display: block;
   max-width: 600px;
-  width: 100%;
   height: auto;
-  margin: 1.5rem auto 0 auto; /* centers horizontally */
   border-radius: 12px;
 }
 
