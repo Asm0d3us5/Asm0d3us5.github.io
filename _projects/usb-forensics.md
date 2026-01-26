@@ -1,4 +1,5 @@
 ---
+layout: project
 title: "USB Forensics Investigation"
 image: /assets/images/usb.jpg
 tags: [DFIR, Autopsy, Linux]
