@@ -36,7 +36,14 @@
   margin-right: 10px;
 }
 
-
+.portfolio-image {
+  max-width: 420px;
+  width: 100%;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
 
 
 
