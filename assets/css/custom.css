@@ -36,14 +36,67 @@
   margin-right: 10px;
 }
 
-.portfolio-image {
-  max-width: 420px;
-  width: 100%;
-  display: block;
-  margin: 1rem auto;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+/*==== Portfolio layout =====*/
+
+/* === Portfolio Grid === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
+
+/* === Individual Card === */
+.portfolio-card {
+  background: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* === Image === */
+.portfolio-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* === Content === */
+.portfolio-content {
+  padding: 1.2rem;
+}
+
+.portfolio-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-content p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* === Tags === */
+.portfolio-tags {
+  margin-top: 0.7rem;
+}
+
+.portfolio-tags span {
+  display: inline-block;
+  background: rgba(255,255,255,0.05);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-right: 0.4rem;
+}
+
 
 
 
