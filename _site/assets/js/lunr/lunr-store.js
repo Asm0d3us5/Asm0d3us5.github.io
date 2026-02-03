@@ -1,6 +1,6 @@
 var store = [{
         "title": "Investigating a USB Forensics Case",
-        "excerpt":"Example 1 of blog article  ","categories": [],
+        "excerpt":"Example 1 of blog article  Part 1   ```  ","categories": [],
         "tags": [],
         "url": "/2026/01/20/usb-forensics.html",
         "teaser": "/assets/images/usb.jpg"

@@ -9,3 +9,7 @@ header:
 ---
 
 ## Example 1 of blog article 
+ Part 1 
+ 
+
+```
