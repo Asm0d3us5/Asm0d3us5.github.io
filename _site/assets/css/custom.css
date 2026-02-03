@@ -1,0 +1,135 @@
+.home-hero {
+  display: flex;
+  min-height: 90vh;
+}
+
+.hero-left {
+  width: 40%;
+  position: relative;
+}
+
+.hero-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.hero-right {
+  width: 60%;
+  margin-left: 40%;
+  padding: 4rem;
+}
+
+.hero-bio {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.hero-buttons {
+  margin: 1.5rem 0;
+}
+
+.hero-buttons .btn {
+  margin-right: 10px;
+}
+
+/*==== Portfolio layout =====*/
+
+/* === Portfolio Grid === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* === Individual Card === */
+.portfolio-card {
+  background: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* === Image === */
+.portfolio-card img {
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin: 1.5rem auto 0 auto; /* centers horizontally */
+  border-radius: 12
+}
+
+/* === Content === */
+.portfolio-content {
+  padding: 1.2rem;
+}
+
+.portfolio-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-content p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* === Tags === */
+.portfolio-tags {
+  margin-top: 0.7rem;
+}
+
+.portfolio-tags span {
+  display: inline-block;
+  background: rgba(255,255,255,0.05);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-right: 0.4rem;
+}
+
+/* === Project page === */
+
+.project-wrapper {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.project-card img {
+  display: block;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.project-body {
+  margin-top: 2.5rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.project-body h2,
+.project-body h3 {
+  margin-top: 2.5rem;
+}
+
+.project-body ul {
+  padding-left: 1.2rem;
+}
+
+
+
+
+

@@ -4,7 +4,7 @@ title: Cybersecurity | Portfolio
 header:
   overlay_image: /assets/images/banner.jpg
   overlay_color: "#111"
-  overlay_filter: "0.6"
+  overlay_filter: "0.9"
 ---
 
 ## Hi, I'm Mauro 👋

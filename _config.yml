@@ -2,7 +2,7 @@ title: Mauro Sunda
 description: Cybersecurity Portfolio | DFIR | Network Security | CTFs
 email: MauroSunda@protonmail.com
 locale: en-AU
-timezone: Australia/Melbourne
+timezone: "Australia/Melbourne"
 
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
