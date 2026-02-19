@@ -1,6 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+
 <body>
-    
+  {% include custom-sidebar.html %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
 </body>
-<button id="theme-toggle" class="theme-toggle">
-  🌓
-</button>
+</html>
