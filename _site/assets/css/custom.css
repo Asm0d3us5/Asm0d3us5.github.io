@@ -1,1131 +1,29 @@
-/* ===== CSS Variables ===== */
-:root {
-  --bg: #0a0a0d;
-  --bg-card: #13131a;
-  --text: #f0f0f0;
-  --muted: #a0a0a0;
-  --border: rgba(255,255,255,0.1);
-  --accent: #007bff;
-  --accent-hover: #0056b3;
-}
-
-[data-theme="light"] {
-  --bg: #f5f5f7;
-  --bg-card: #ffffff;
-  --text: #1d1d1f;
-  --muted: #6e6e73;
-  --border: rgba(0,0,0,0.1);
-  --accent: #0071e3;
-  --accent-hover: #0077ed;
-}
-
-/* ===== Smooth Scrolling ===== */
-html {
-  scroll-behavior: smooth;
-}
-
-/* ===== Hero Section ===== */
-.home-hero {
-  display: flex;
-  min-height: 90vh;
-}
-
-.hero-left {
-  width: 40%;
-  position: relative;
-}
-
-.hero-left img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  top: 0;
-}
-
-.hero-right {
-  width: 60%;
-  margin-left: 40%;
-  padding: 4rem;
-}
-
-.hero-bio {
-  font-size: 1.2rem;
-  opacity: 0.8;
-}
-
-.hero-buttons {
-  margin: 1.5rem 0;
-}
-
-.hero-buttons .btn {
-  margin-right: 10px;
-}
-
-/* ===== Theme Toggle ===== */
-.theme-toggle {
-  position: fixed;
-  top: 1.2rem;
-  right: 1.2rem;
-  background: var(--bg-card);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.4rem 0.6rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.25s ease;
-  z-index: 1000;
-}
-
-.theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--accent);
-}
-
-/* ===== Portfolio Grid ===== */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-/* ===== Portfolio Card ===== */
-.portfolio-card {
-  background: var(--bg-card);
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-}
-
-.portfolio-card:focus-within {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-}
-
-/* Card fade-in animation delays */
-.portfolio-card:nth-child(1) { animation-delay: 0.1s; }
-.portfolio-card:nth-child(2) { animation-delay: 0.2s; }
-.portfolio-card:nth-child(3) { animation-delay: 0.3s; }
-.portfolio-card:nth-child(4) { animation-delay: 0.4s; }
-.portfolio-card:nth-child(5) { animation-delay: 0.5s; }
-.portfolio-card:nth-child(6) { animation-delay: 0.6s; }
-
-/* ===== Card Image ===== */
-.portfolio-card img {
-  display: block;
-  max-width: 600px;
-  width: 100%;
-  height: auto;
-  margin: 1.5rem auto 0 auto;
-  border-radius: 12px;
-}
-
-/* ===== Card Content ===== */
-.portfolio-content {
-  padding: 1.2rem;
-}
-
-.portfolio-content h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: var(--text);
-}
-
-.portfolio-content p {
-  font-size: 0.95rem;
-  opacity: 0.85;
-  color: var(--muted);
-}
-
-/* ===== Portfolio Tags ===== */
-.portfolio-tags {
-  margin-top: 0.7rem;
-}
-
-.portfolio-tags span {
-  display: inline-block;
-  background: rgba(255,255,255,0.05);
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
-  color: var(--muted);
-}
-
-/* ===== Difficulty Badges ===== */
-.difficulty-badge {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
-}
-
-.difficulty-easy { 
-  background: rgba(40, 167, 69, 0.15);
-  color: #28a745;
-  border: 1px solid rgba(40, 167, 69, 0.3);
-}
-
-.difficulty-medium { 
-  background: rgba(255, 193, 7, 0.15);
-  color: #ffc107;
-  border: 1px solid rgba(255, 193, 7, 0.3);
-}
-
-.difficulty-hard { 
-  background: rgba(220, 53, 69, 0.15);
-  color: #dc3545;
-  border: 1px solid rgba(220, 53, 69, 0.3);
-}
-
-.difficulty-insane { 
-  background: rgba(111, 66, 193, 0.15);
-  color: #6f42c1;
-  border: 1px solid rgba(111, 66, 193, 0.3);
-}
-
-/* ===== Platform Badges ===== */
-.platform-badge {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: rgba(0, 123, 255, 0.15);
-  color: #007bff;
-  border: 1px solid rgba(0, 123, 255, 0.3);
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
-}
-
-.platform-htb {
-  background: rgba(155, 255, 0, 0.15);
-  color: #9bff00;
-  border: 1px solid rgba(155, 255, 0, 0.3);
-}
-
-.platform-thm {
-  background: rgba(204, 0, 0, 0.15);
-  color: #cc0000;
-  border: 1px solid rgba(204, 0, 0, 0.3);
-}
-
-/* ===== Button Styles ===== */
-.btn {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background: rgba(0, 123, 255, 0.15);
-  color: #007bff;
-  border: 1px solid rgba(0, 123, 255, 0.3);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: rgba(0, 123, 255, 0.25);
-  border-color: rgba(0, 123, 255, 0.5);
-  transform: translateY(-2px);
-}
-
-.btn-primary {
-  background: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
-.btn-primary:hover {
-  background: #0056b3;
-  border-color: #0056b3;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--accent);
-}
-
-/* ===== Terminal Style Code Blocks ===== */
-.terminal {
-  background: #1a1a1d;
-  border: 2px solid rgba(0, 255, 0, 0.3);
-  border-radius: 8px;
-  padding: 1.2rem;
-  font-family: 'Fira Code', 'Courier New', monospace;
-  color: #00ff00;
-  margin: 1.5rem 0;
-  position: relative;
-  overflow-x: auto;
-}
-
-.terminal::before {
-  content: '$ ';
-  color: #00ff00;
-  font-weight: bold;
-}
-
-/* ===== Code Blocks ===== */
-pre, code {
-  font-family: 'Fira Code', 'Courier New', monospace;
-  font-size: 0.9rem;
-}
-
-pre {
-  background: var(--bg-card);
-  border-left: 4px solid rgba(0, 123, 255, 0.6);
-  padding: 1rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-  line-height: 1.6;
-}
-
-code {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.85em;
-  color: var(--text);
-}
-
-pre code {
-  background: transparent;
-  padding: 0;
-}
-
-/* ===== Project Page ===== */
-.project-wrapper {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-}
-
-.project-card img {
-  display: block;
-  max-width: 600px;
-  height: auto;
-  border-radius: 12px;
-}
-
-.project-body {
-  margin-top: 2.5rem;
-  line-height: 1.7;
-  font-size: 1.05rem;
-  color: var(--text);
-}
-
-.project-body h2,
-.project-body h3 {
-  margin-top: 2.5rem;
-  color: var(--text);
-}
-
-.project-body ul {
-  padding-left: 1.2rem;
-}
-
-.project-body a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.25s ease;
-}
-
-.project-body a:hover {
-  border-bottom-color: var(--accent);
-}
-
-/* ===== Accessibility ===== */
-*:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-/* ===== Animations ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== Responsive Design ===== */
-@media (max-width: 768px) {
-  .home-hero {
-    flex-direction: column;
-    min-height: auto;
-  }
-  
-  .hero-left {
-    width: 100%;
-    height: 40vh;
-    position: relative;
-  }
-  
-  .hero-left img {
-    position: relative;
-    height: 100%;
-  }
-  
-  .hero-right {
-    width: 100%;
-    margin-left: 0;
-    padding: 2rem 1.5rem;
-  }
-  
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .project-wrapper {
-    padding: 2rem 1rem;
-  }
-  
-  .hero-bio {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-right {
-    padding: 1.5rem 1rem;
-  }
-  
-  .hero-buttons .btn {
-    display: block;
-    margin-bottom: 0.5rem;
-    margin-right: 0;
-    text-align: center;
-  }
-  
-  .theme-toggle {
-    top: 0.8rem;
-    right: 0.8rem;
-  }
-}
-
-/* ===== Print Styles ===== */
-@media print {
-  .theme-toggle,
-  .hero-buttons {
-    display: none;
-  }
-  
-  .portfolio-card {
-    break-inside: avoid;
-  }
-}/* ===== CSS Variables ===== */
-:root {
-  --bg: #0a0a0d;
-  --bg-card: #13131a;
-  --text: #f0f0f0;
-  --muted: #a0a0a0;
-  --border: rgba(255,255,255,0.1);
-  --accent: #007bff;
-  --accent-hover: #0056b3;
-}
-
-[data-theme="light"] {
-  --bg: #f5f5f7;
-  --bg-card: #ffffff;
-  --text: #1d1d1f;
-  --muted: #6e6e73;
-  --border: rgba(0,0,0,0.1);
-  --accent: #0071e3;
-  --accent-hover: #0077ed;
-}
-
-/* ===== Smooth Scrolling ===== */
-html {
-  scroll-behavior: smooth;
-}
-
-/* ===== Hero Section ===== */
-.home-hero {
-  display: flex;
-  min-height: 90vh;
-}
-
-.hero-left {
-  width: 40%;
-  position: relative;
-}
-
-.hero-left img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  top: 0;
-}
-
-.hero-right {
-  width: 60%;
-  margin-left: 40%;
-  padding: 4rem;
-}
-
-.hero-bio {
-  font-size: 1.2rem;
-  opacity: 0.8;
-}
-
-.hero-buttons {
-  margin: 1.5rem 0;
-}
-
-.hero-buttons .btn {
-  margin-right: 10px;
-}
-
-/* ===== Theme Toggle ===== */
-.theme-toggle {
-  position: fixed;
-  top: 1.2rem;
-  right: 1.2rem;
-  background: var(--bg-card);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.4rem 0.6rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.25s ease;
-  z-index: 1000;
-}
-
-.theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--accent);
-}
-
-/* ===== Portfolio Grid ===== */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-/* ===== Portfolio Card ===== */
-.portfolio-card {
-  background: var(--bg-card);
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-}
-
-.portfolio-card:focus-within {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-}
-
-/* Card fade-in animation delays */
-.portfolio-card:nth-child(1) { animation-delay: 0.1s; }
-.portfolio-card:nth-child(2) { animation-delay: 0.2s; }
-.portfolio-card:nth-child(3) { animation-delay: 0.3s; }
-.portfolio-card:nth-child(4) { animation-delay: 0.4s; }
-.portfolio-card:nth-child(5) { animation-delay: 0.5s; }
-.portfolio-card:nth-child(6) { animation-delay: 0.6s; }
-
-/* ===== Card Image ===== */
-.portfolio-card img {
-  display: block;
-  max-width: 600px;
-  width: 100%;
-  height: auto;
-  margin: 1.5rem auto 0 auto;
-  border-radius: 12px;
-}
-
-/* ===== Card Content ===== */
-.portfolio-content {
-  padding: 1.2rem;
-}
-
-.portfolio-content h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: var(--text);
-}
-
-.portfolio-content p {
-  font-size: 0.95rem;
-  opacity: 0.85;
-  color: var(--muted);
-}
-
-/* ===== Portfolio Tags ===== */
-.portfolio-tags {
-  margin-top: 0.7rem;
-}
-
-.portfolio-tags span {
-  display: inline-block;
-  background: rgba(255,255,255,0.05);
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
-  color: var(--muted);
-}
-
-/* ===== Difficulty Badges ===== */
-.difficulty-badge {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
-}
-
-.difficulty-easy { 
-  background: rgba(40, 167, 69, 0.15);
-  color: #28a745;
-  border: 1px solid rgba(40, 167, 69, 0.3);
-}
-
-.difficulty-medium { 
-  background: rgba(255, 193, 7, 0.15);
-  color: #ffc107;
-  border: 1px solid rgba(255, 193, 7, 0.3);
-}
-
-.difficulty-hard { 
-  background: rgba(220, 53, 69, 0.15);
-  color: #dc3545;
-  border: 1px solid rgba(220, 53, 69, 0.3);
-}
-
-.difficulty-insane { 
-  background: rgba(111, 66, 193, 0.15);
-  color: #6f42c1;
-  border: 1px solid rgba(111, 66, 193, 0.3);
-}
-
-/* ===== Platform Badges ===== */
-.platform-badge {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: rgba(0, 123, 255, 0.15);
-  color: #007bff;
-  border: 1px solid rgba(0, 123, 255, 0.3);
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
-}
-
-.platform-htb {
-  background: rgba(155, 255, 0, 0.15);
-  color: #9bff00;
-  border: 1px solid rgba(155, 255, 0, 0.3);
-}
-
-.platform-thm {
-  background: rgba(204, 0, 0, 0.15);
-  color: #cc0000;
-  border: 1px solid rgba(204, 0, 0, 0.3);
-}
-
-/* ===== Button Styles ===== */
-.btn {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background: rgba(0, 123, 255, 0.15);
-  color: #007bff;
-  border: 1px solid rgba(0, 123, 255, 0.3);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: rgba(0, 123, 255, 0.25);
-  border-color: rgba(0, 123, 255, 0.5);
-  transform: translateY(-2px);
-}
-
-.btn-primary {
-  background: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
-.btn-primary:hover {
-  background: #0056b3;
-  border-color: #0056b3;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--accent);
-}
-
-/* ===== Terminal Style Code Blocks ===== */
-.terminal {
-  background: #1a1a1d;
-  border: 2px solid rgba(0, 255, 0, 0.3);
-  border-radius: 8px;
-  padding: 1.2rem;
-  font-family: 'Fira Code', 'Courier New', monospace;
-  color: #00ff00;
-  margin: 1.5rem 0;
-  position: relative;
-  overflow-x: auto;
-}
-
-.terminal::before {
-  content: '$ ';
-  color: #00ff00;
-  font-weight: bold;
-}
-
-/* ===== Code Blocks ===== */
-pre, code {
-  font-family: 'Fira Code', 'Courier New', monospace;
-  font-size: 0.9rem;
-}
-
-pre {
-  background: var(--bg-card);
-  border-left: 4px solid rgba(0, 123, 255, 0.6);
-  padding: 1rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-  line-height: 1.6;
-}
-
-code {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.85em;
-  color: var(--text);
-}
-
-pre code {
-  background: transparent;
-  padding: 0;
-}
-
-/* ===== Project Page ===== */
-.project-wrapper {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-}
-
-.project-card img {
-  display: block;
-  max-width: 600px;
-  height: auto;
-  border-radius: 12px;
-}
-
-.project-body {
-  margin-top: 2.5rem;
-  line-height: 1.7;
-  font-size: 1.05rem;
-  color: var(--text);
-}
-
-.project-body h2,
-.project-body h3 {
-  margin-top: 2.5rem;
-  color: var(--text);
-}
-
-.project-body ul {
-  padding-left: 1.2rem;
-}
-
-.project-body a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.25s ease;
-}
-
-.project-body a:hover {
-  border-bottom-color: var(--accent);
-}
-
-/* ===== Accessibility ===== */
-*:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-/* ===== Animations ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== Responsive Design ===== */
-@media (max-width: 768px) {
-  .home-hero {
-    flex-direction: column;
-    min-height: auto;
-  }
-  
-  .hero-left {
-    width: 100%;
-    height: 40vh;
-    position: relative;
-  }
-  
-  .hero-left img {
-    position: relative;
-    height: 100%;
-  }
-  
-  .hero-right {
-    width: 100%;
-    margin-left: 0;
-    padding: 2rem 1.5rem;
-  }
-  
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .project-wrapper {
-    padding: 2rem 1rem;
-  }
-  
-  .hero-bio {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-right {
-    padding: 1.5rem 1rem;
-  }
-  
-  .hero-buttons .btn {
-    display: block;
-    margin-bottom: 0.5rem;
-    margin-right: 0;
-    text-align: center;
-  }
-  
-  .theme-toggle {
-    top: 0.8rem;
-    right: 0.8rem;
-  }
-}
-
-/* ===== Print Styles ===== */
-@media print {
-  .theme-toggle,
-  .hero-buttons {
-    display: none;
-  }
-  
-  .portfolio-card {
-    break-inside: avoid;
-  }
-}
-
 /* ========================================
-   Custom Enhancements for Mauro's Portfolio
-   Add this to your existing CSS file
+   OPTIMIZED CUSTOM STYLES FOR MAURO'S PORTFOLIO
+   
+   TABLE OF CONTENTS:
+   1. CSS Variables (Theme Colors)
+   2. Global Resets & Smooth Scrolling
+   3. Dark/Light Mode Toggle Button
+   4. Page Navigation Cards
+   5. Portfolio Grid & Cards
+   6. Badges (Difficulty & Platform)
+   7. Buttons
+   8. Code Blocks & Terminal
+   9. Typography & Content
+   10. Animations
+   11. Responsive Design
    ======================================== */
 
-/* Difficulty Badges for DFIR Cases & CTFs */
-.difficulty-badge {
-  display: inline-block;
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.difficulty-easy { 
-  background: rgba(40, 167, 69, 0.15);
-  color: #28a745;
-  border: 1px solid rgba(40, 167, 69, 0.3);
-}
-
-.difficulty-medium { 
-  background: rgba(255, 193, 7, 0.15);
-  color: #ffc107;
-  border: 1px solid rgba(255, 193, 7, 0.3);
-}
-
-.difficulty-hard { 
-  background: rgba(220, 53, 69, 0.15);
-  color: #dc3545;
-  border: 1px solid rgba(220, 53, 69, 0.3);
-}
-
-/* Platform Badges (TryHackMe, DFIR Challenges, etc.) */
-.platform-badge {
-  display: inline-block;
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: rgba(0, 123, 255, 0.15);
-  color: #007bff;
-  border: 1px solid rgba(0, 123, 255, 0.3);
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Enhanced Portfolio Grid (works with existing MM styles) */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-/* Portfolio Card Enhancements */
-.portfolio-card {
-  background: var(--background-color, #fff);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  text-decoration: none;
-  display: block;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  text-decoration: none;
-}
-
-.portfolio-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-}
-
-.portfolio-content {
-  padding: 1.25rem;
-}
-
-.portfolio-content h3 {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1.15rem;
-}
-
-.portfolio-content p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-  opacity: 0.85;
-}
-
-/* Tags Styling */
-.portfolio-tags {
-  margin-top: 0.75rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.portfolio-tags span {
-  display: inline-block;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  color: inherit;
-  opacity: 0.8;
-}
-
-/* Button Enhancements */
-.btn {
-  display: inline-block;
-  padding: 0.6rem 1.3rem;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  font-weight: 500;
-  font-size: 0.9rem;
-  margin: 0.25rem;
-}
-
-.btn-primary {
-  background: #007bff;
-  color: white;
-  border: 1px solid #007bff;
-}
-
-.btn-primary:hover {
-  background: #0056b3;
-  border-color: #0056b3;
-  text-decoration: none;
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: inherit;
-  border: 1px solid currentColor;
-  opacity: 0.8;
-}
-
-.btn-secondary:hover {
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.05);
-  text-decoration: none;
-  transform: translateY(-2px);
-}
-
-/* Terminal/Code Block Enhancement (for forensics commands) */
-.terminal {
-  background: #1a1a1d;
-  border: 2px solid rgba(0, 255, 0, 0.3);
-  border-radius: 6px;
-  padding: 1rem;
-  font-family: 'Courier New', monospace;
-  color: #00ff00;
-  margin: 1.5rem 0;
-  overflow-x: auto;
-}
-
-/* Enhanced Code Blocks */
-pre {
-  border-left: 4px solid #007bff;
-}
-
-/* Dark Mode Adjustments */
-@media (prefers-color-scheme: dark) {
-  .portfolio-card {
-    background: #1a1a1a;
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .portfolio-tags span {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-  
-  .portfolio-card img {
-    height: 180px;
-  }
-}
-
-/* Fade-in Animation (optional) */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.portfolio-card {
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-.portfolio-card:nth-child(1) { animation-delay: 0.1s; }
-.portfolio-card:nth-child(2) { animation-delay: 0.2s; }
-.portfolio-card:nth-child(3) { animation-delay: 0.3s; }
 
 /* ========================================
-   Enhanced Custom Styles with Dark/Light Mode
-   For Mauro's Portfolio
+   1. CSS VARIABLES (THEME COLORS)
+   Define all colors once, use everywhere
    ======================================== */
-
-/* ===== THEME VARIABLES ===== */
 :root {
-  /* Light Mode (Default) */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-card: #ffffff;
-  --text-primary: #212529;
-  --text-secondary: #6c757d;
-  --border-color: rgba(0, 0, 0, 0.1);
-  --shadow: rgba(0, 0, 0, 0.1);
-  --accent: #007bff;
-  --accent-hover: #0056b3;
-}
-
-[data-theme="dark"] {
-  /* Dark Mode */
-  --bg-primary: #0e0e11;
-  --bg-secondary: #1a1a1d;
+  /* Default: Dark Theme */
+  --bg-primary: #0a0a0d;
+  --bg-secondary: #13131a;
   --bg-card: #13131a;
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
@@ -1135,34 +33,74 @@ pre {
   --accent-hover: #2980ff;
 }
 
-/* Apply theme colors globally */
+/* Light Theme Override */
+[data-theme="light"] {
+  --bg-primary: #f5f5f7;
+  --bg-secondary: #f8f9fa;
+  --bg-card: #ffffff;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+}
+
+
+/* ========================================
+   2. GLOBAL RESETS & SMOOTH SCROLLING
+   Base styles that apply to entire page
+   ======================================== */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ===== DARK/LIGHT MODE TOGGLE BUTTON ===== */
+/* Apply dark theme to Minimal Mistakes page elements */
+[data-theme="dark"] .page,
+[data-theme="dark"] .page__content {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+
+/* ========================================
+   3. DARK/LIGHT MODE TOGGLE BUTTON
+   Floating button in top-right corner
+   ======================================== */
 .theme-toggle {
+  /* Positioning: Fixed to viewport, top-right */
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
+  z-index: 1000;
+  
+  /* Styling: Circle button with theme colors */
   background: var(--bg-card);
   color: var(--text-primary);
   border: 2px solid var(--border-color);
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  
+  /* Layout: Center the icon */
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  /* Interaction */
   cursor: pointer;
   font-size: 1.2rem;
-  transition: all 0.3s ease;
-  z-index: 1000;
   box-shadow: 0 4px 12px var(--shadow);
+  transition: all 0.3s ease;
 }
 
+/* Hover Effect: Scale up and rotate with accent color */
 .theme-toggle:hover {
   transform: scale(1.1) rotate(20deg);
   background: var(--accent);
@@ -1170,11 +108,18 @@ body {
   border-color: var(--accent);
 }
 
+/* Active/Click Effect: Scale down slightly */
 .theme-toggle:active {
   transform: scale(0.95);
 }
 
-/* ===== PAGE NAVIGATION CARDS ===== */
+
+/* ========================================
+   4. PAGE NAVIGATION CARDS
+   Four cards for main site sections
+   ======================================== */
+
+/* Grid Container: Auto-fit columns, minimum 220px */
 .page-navigation {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1182,6 +127,7 @@ body {
   margin: 2rem 0;
 }
 
+/* Individual Card Styling */
 .nav-card {
   background: var(--bg-card);
   border: 2px solid var(--border-color);
@@ -1190,9 +136,10 @@ body {
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Needed for the top border animation */
 }
 
+/* Top Border Animation (appears on hover) */
 .nav-card::before {
   content: '';
   position: absolute;
@@ -1201,26 +148,29 @@ body {
   width: 100%;
   height: 4px;
   background: linear-gradient(90deg, var(--accent), var(--accent-hover));
-  transform: scaleX(0);
+  transform: scaleX(0); /* Hidden by default */
   transition: transform 0.3s ease;
 }
 
 .nav-card:hover::before {
-  transform: scaleX(1);
+  transform: scaleX(1); /* Expand on hover */
 }
 
+/* Card Hover Effect: Lift up with shadow */
 .nav-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 30px var(--shadow);
   border-color: var(--accent);
 }
 
+/* Link Styling: Remove underline, inherit color */
 .nav-card a {
   text-decoration: none;
   color: var(--text-primary);
   display: block;
 }
 
+/* Icon: Large, colored, scales on hover */
 .nav-icon {
   font-size: 2.5rem;
   color: var(--accent);
@@ -1229,15 +179,17 @@ body {
 }
 
 .nav-card:hover .nav-icon {
-  transform: scale(1.2);
+  transform: scale(1.2); /* Zoom in on hover */
 }
 
+/* Card Title */
 .nav-card h3 {
   margin: 0.5rem 0;
   font-size: 1.25rem;
   color: var(--text-primary);
 }
 
+/* Card Description */
 .nav-card p {
   font-size: 0.9rem;
   color: var(--text-secondary);
@@ -1245,6 +197,7 @@ body {
   line-height: 1.5;
 }
 
+/* Count Badge: Shows number of items */
 .nav-count {
   display: inline-block;
   background: var(--accent);
@@ -1255,10 +208,104 @@ body {
   font-weight: 600;
 }
 
-/* ===== DIFFICULTY BADGES ===== */
-.difficulty-badge {
+
+/* ========================================
+   5. PORTFOLIO GRID & CARDS
+   Display projects and posts in responsive grid
+   ======================================== */
+
+/* Grid Container: Auto-fill columns, minimum 280px */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Individual Portfolio Card */
+.portfolio-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden; /* Keeps image inside rounded corners */
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: block;
+}
+
+/* Card Hover Effect: Lift and add shadow */
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px var(--shadow);
+  border-color: var(--accent);
+  text-decoration: none; /* Prevent link underline */
+}
+
+/* Card Image: Fixed height, cover to fill */
+.portfolio-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Image Zoom on Hover */
+.portfolio-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Card Content Area */
+.portfolio-content {
+  padding: 1.25rem;
+}
+
+/* Card Title */
+.portfolio-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+/* Card Description */
+.portfolio-content p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Tags Container */
+.portfolio-tags {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Individual Tag */
+.portfolio-tags span {
   display: inline-block;
-  padding: 0.25rem 0.7rem;
+  background: var(--bg-secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+
+/* ========================================
+   6. BADGES (DIFFICULTY & PLATFORM)
+   Color-coded badges for projects/posts
+   ======================================== */
+
+/* Base Badge Styling */
+.difficulty-badge,
+.platform-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -1266,6 +313,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* Difficulty Badges: Color-coded by level */
 .difficulty-easy { 
   background: rgba(40, 167, 69, 0.15);
   color: #28a745;
@@ -1284,7 +332,13 @@ body {
   border: 1px solid rgba(220, 53, 69, 0.3);
 }
 
-/* Dark mode adjustments for badges */
+.difficulty-insane { 
+  background: rgba(111, 66, 193, 0.15);
+  color: #6f42c1;
+  border: 1px solid rgba(111, 66, 193, 0.3);
+}
+
+/* Dark Mode: Brighter colors for better visibility */
 [data-theme="dark"] .difficulty-easy {
   background: rgba(40, 167, 69, 0.2);
   color: #48d460;
@@ -1300,18 +354,11 @@ body {
   color: #ff6b7a;
 }
 
-/* ===== PLATFORM BADGES ===== */
+/* Platform Badges: Blue accent */
 .platform-badge {
-  display: inline-block;
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
   background: rgba(0, 123, 255, 0.15);
   color: #007bff;
   border: 1px solid rgba(0, 123, 255, 0.3);
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 
 [data-theme="dark"] .platform-badge {
@@ -1319,84 +366,29 @@ body {
   color: #4a9eff;
 }
 
-/* ===== PORTFOLIO GRID ===== */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+/* Specific Platform Colors */
+.platform-htb {
+  background: rgba(155, 255, 0, 0.15);
+  color: #9bff00;
+  border: 1px solid rgba(155, 255, 0, 0.3);
 }
 
-/* ===== PORTFOLIO CARDS ===== */
-.portfolio-card {
-  background: var(--bg-card);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  transition: all 0.25s ease;
-  text-decoration: none;
-  display: block;
+.platform-thm {
+  background: rgba(204, 0, 0, 0.15);
+  color: #cc0000;
+  border: 1px solid rgba(204, 0, 0, 0.3);
 }
 
-.portfolio-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px var(--shadow);
-  border-color: var(--accent);
-  text-decoration: none;
-}
 
-.portfolio-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
+/* ========================================
+   7. BUTTONS
+   Primary and secondary button styles
+   ======================================== */
 
-.portfolio-card:hover img {
-  transform: scale(1.05);
-}
-
-.portfolio-content {
-  padding: 1.25rem;
-}
-
-.portfolio-content h3 {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1.15rem;
-  color: var(--text-primary);
-}
-
-.portfolio-content p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-  color: var(--text-secondary);
-}
-
-/* ===== TAGS ===== */
-.portfolio-tags {
-  margin-top: 0.75rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.portfolio-tags span {
-  display: inline-block;
-  background: var(--bg-secondary);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-}
-
-/* ===== BUTTONS ===== */
+/* Base Button Styling */
 .btn {
   display: inline-block;
-  padding: 0.6rem 1.3rem;
+  padding: 0.7rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -1404,8 +396,10 @@ body {
   font-size: 0.9rem;
   margin: 0.25rem;
   border: 2px solid transparent;
+  cursor: pointer;
 }
 
+/* Primary Button: Accent color background */
 .btn-primary {
   background: var(--accent);
   color: white;
@@ -1416,10 +410,11 @@ body {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
   text-decoration: none;
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Lift on hover */
   box-shadow: 0 4px 12px var(--shadow);
 }
 
+/* Secondary Button: Transparent with border */
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
@@ -1433,55 +428,127 @@ body {
   transform: translateY(-2px);
 }
 
-/* ===== TERMINAL BLOCKS ===== */
+
+/* ========================================
+   8. CODE BLOCKS & TERMINAL
+   Styling for code snippets and terminal output
+   ======================================== */
+
+/* Terminal Style Block: Green text on dark background */
 .terminal {
   background: #1a1a1d;
   border: 2px solid rgba(0, 255, 0, 0.3);
   border-radius: 8px;
-  padding: 1rem;
-  font-family: 'Courier New', monospace;
+  padding: 1.2rem;
+  font-family: 'Fira Code', 'Courier New', monospace;
   color: #00ff00;
   margin: 1.5rem 0;
   overflow-x: auto;
 }
 
-/* ===== CODE BLOCKS ===== */
+/* Add $ prefix to terminal */
+.terminal::before {
+  content: '$ ';
+  color: #00ff00;
+  font-weight: bold;
+}
+
+/* Code Font */
+pre, code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+/* Code Blocks: Blue left border */
 pre {
   background: var(--bg-card);
   border-left: 4px solid var(--accent);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  line-height: 1.6;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 768px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-  
-  .page-navigation {
-    grid-template-columns: 1fr;
-  }
-  
-  .portfolio-card img {
-    height: 180px;
-  }
-  
-  .theme-toggle {
-    top: 1rem;
-    right: 1rem;
-    width: 45px;
-    height: 45px;
-    font-size: 1rem;
-  }
+/* Inline Code */
+code {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: var(--text-primary);
 }
 
-/* ===== FADE-IN ANIMATION ===== */
+/* Code inside pre block: Remove background */
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
+
+/* ========================================
+   9. TYPOGRAPHY & CONTENT
+   Project page and content area styling
+   ======================================== */
+
+/* Project Wrapper: Max width container */
+.project-wrapper {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Project Images */
+.project-card img {
+  display: block;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Project Body Text */
+.project-body {
+  margin-top: 2.5rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+/* Project Headings */
+.project-body h2,
+.project-body h3 {
+  margin-top: 2.5rem;
+  color: var(--text-primary);
+}
+
+/* Project Lists */
+.project-body ul {
+  padding-left: 1.2rem;
+}
+
+/* Project Links */
+.project-body a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease;
+}
+
+.project-body a:hover {
+  border-bottom-color: var(--accent);
+}
+
+
+/* ========================================
+   10. ANIMATIONS
+   Fade-in effects and transitions
+   ======================================== */
+
+/* Fade In From Bottom Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -1489,29 +556,89 @@ pre {
   }
 }
 
+/* Apply Animation to Cards */
 .portfolio-card,
 .nav-card {
-  animation: fadeInUp 0.5s ease forwards;
+  animation: fadeInUp 0.6s ease forwards;
 }
 
+/* Stagger Animation: Each card appears slightly after the previous */
 .portfolio-card:nth-child(1),
 .nav-card:nth-child(1) { animation-delay: 0.1s; }
+
 .portfolio-card:nth-child(2),
 .nav-card:nth-child(2) { animation-delay: 0.2s; }
+
 .portfolio-card:nth-child(3),
 .nav-card:nth-child(3) { animation-delay: 0.3s; }
+
 .portfolio-card:nth-child(4),
 .nav-card:nth-child(4) { animation-delay: 0.4s; }
 
-/* ===== SMOOTH TRANSITIONS ===== */
-* {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+.portfolio-card:nth-child(5) { animation-delay: 0.5s; }
+.portfolio-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Accessibility: Focus Outline */
+*:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
-/* Override transitions for specific elements */
-.portfolio-card,
-.nav-card,
-.btn,
-.theme-toggle {
-  transition: all 0.25s ease;
+
+/* ========================================
+   11. RESPONSIVE DESIGN
+   Mobile and tablet adjustments
+   ======================================== */
+
+/* Tablet and Mobile (768px and below) */
+@media (max-width: 768px) {
+  /* Single Column Grids */
+  .portfolio-grid,
+  .page-navigation {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  /* Shorter Card Images on Mobile */
+  .portfolio-card img {
+    height: 180px;
+  }
+  
+  /* Smaller Toggle Button */
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  
+  /* Reduce Project Wrapper Padding */
+  .project-wrapper {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  /* Stack Buttons Vertically */
+  .hero-buttons .btn {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
+/* Print Styles: Hide interactive elements */
+@media print {
+  .theme-toggle,
+  .hero-buttons {
+    display: none;
+  }
+  
+  /* Prevent page breaks inside cards */
+  .portfolio-card {
+    break-inside: avoid;
+  }
 }
