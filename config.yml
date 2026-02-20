@@ -8,9 +8,9 @@ remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 minimal_mistakes_skin: dark
 
-custom_css:
-  - assets/css/custom.css
-
+# Load custom CSS (Minimal Mistakes way)
+head_scripts:
+  - /assets/css/custom.css
 
 plugins:
   - jekyll-remote-theme
@@ -28,30 +28,41 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
-  
 
 defaults:
   - scope:
       path: ""
       type: projects
     values:
-      layout: project
+      layout: single
+      author_profile: true
+      
+  # Posts defaults
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: true
+      related: true
 
-header_pages:
-  - index.md
-  - projects.md
-  - blog.md
-  - about.md
-  
-navigation:
-  - title: Home
-    url: /
-  - title: Projects
-    url: /projects/
-  - title: Blog
-    url: /blog/
-  - title: About
-    url: /about/
+# Minimal Mistakes includes
+include:
+  - _pages
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Navigation (top menu)
+# Note: Minimal Mistakes doesn't use 'navigation:' like this
+# It uses a separate _data/navigation.yml file
       
 footer:
   links:
@@ -62,4 +73,5 @@ footer:
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/mauro-sunda-29aa02263"
       
-copyright: "© 2026 Mauro Sunda. All rights reserved."
+# Minimal Mistakes doesn't use 'copyright:' in _config.yml
+# It's set in the theme itself, but you can override in footer
