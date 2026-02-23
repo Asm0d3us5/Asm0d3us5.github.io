@@ -2,11 +2,10 @@
 title: "Module Review: Custom Alert Rules in Wazuh (TryHackMe)"
 date: 2026-02-23
 layout: single
-
 header:
-   image: /assets/images/Soc-Lab/Wazuh-Rules/wazuh.png
+  image: /assets/images/Soc-Lab/Wazuh-Rules/wazuh.png
   overlay_image: /assets/images/Soc-Lab/Wazuh-Rules/wazuh.png
-  overlay_filter: 0.3 
+  overlay_filter: 0.3
 ---
 
 ## SOC Lab: Custom Alert Rules in Wazuh (TryHackMe)
