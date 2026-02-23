@@ -5,10 +5,10 @@ var store = [{
         "url": "/2026/01/20/usb-forensics.html",
         "teaser": "/assets/images/usb.jpg"
       },{
-        "title": null,
+        "title": "Module Review: Custom Alert Rules in Wazuh (TryHackMe)",
         "excerpt":"SOC Lab: Custom Alert Rules in Wazuh (TryHackMe) Overview This lab focused on creating and tuning custom alert rules in Wazuh to enhance detection capabilities beyond the default rule set. The objective was to understand how logs are processed through decoders and rules, and how custom logic can be applied...","categories": [],
-        "tags": null,
-        "url": "/2026/02/23/2026-02-23-wazuh-rules.html",
+        "tags": [],
+        "url": "/2026/02/23/wazuh-rules.html",
         "teaser": null
       },{
         "title": "USB Forensics Investigation",
