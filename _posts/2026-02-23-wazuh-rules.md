@@ -69,7 +69,7 @@ Wazuh rules are written in XML and rely on decoded log fields to trigger alerts 
 
 ## Lab Evidence
 
-![Wazuh auditd_rules.xml for linux machines](/assets/images/Soc-Lab/Wazuh-rules/Audit_Rules.png)
+![Wazuh auditd_rules.xml for linux machines] (/assets/images/Soc-Lab/Wazuh-rules/Audit_Rules.png)
 
 *Screenshot showing an auditd_rules for Linux machines aim to detect file creation events via Syscalls.*
 
