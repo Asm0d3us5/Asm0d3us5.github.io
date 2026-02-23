@@ -492,8 +492,15 @@ pre code {
    
 .page__hero,
 .page__hero--overlay {
-  max-height: 260px; 
+  max-height: 280px; 
   overflow: hidden;
+}
+.page__hero img,
+.page__hero--overlay img {
+  width: 100% !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 .page__hero-title {
