@@ -485,6 +485,24 @@ pre code {
   padding: 0;
 }
 
+/* ========================================
+   9.1. TYPOGRAPHY & CONTENT
+   Project page and content area styling
+   ======================================== */
+   
+.page__hero,
+.page__hero--overlay {
+  max-height: 260px; 
+  overflow: hidden;
+}
+
+.page__hero-title {
+  font-size: 2rem;
+}
+
+.page__hero-lead {
+  font-size: 1rem;
+}
 
 /* ========================================
    9. TYPOGRAPHY & CONTENT

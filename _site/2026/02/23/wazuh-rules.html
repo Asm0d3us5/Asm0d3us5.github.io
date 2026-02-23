@@ -1,0 +1,330 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Module Review: Custom Alert Rules in Wazuh (TryHackMe) - Mauro Sunda</title>
+<meta name="description" content="SOC Lab: Custom Alert Rules in Wazuh (TryHackMe)">
+
+
+  <meta name="author" content="Mauro Sunda">
+  
+  <meta property="article:author" content="Mauro Sunda">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="Mauro Sunda">
+<meta property="og:title" content="Module Review: Custom Alert Rules in Wazuh (TryHackMe)">
+<meta property="og:url" content="http://localhost:4000/2026/02/23/wazuh-rules.html">
+
+
+  <meta property="og:description" content="SOC Lab: Custom Alert Rules in Wazuh (TryHackMe)">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/Soc-Lab/Wazuh-Rules/wazuh.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2026-02-23T00:00:00+11:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2026/02/23/wazuh-rules.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Mauro Sunda Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- Custom CSS for enhanced portfolio design -->
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+<!-- Preload Font Awesome for icons -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Mauro Sunda
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="/assets/images/Soc-Lab/Wazuh-Rules/wazuh.png" alt="Module Review: Custom Alert Rules in Wazuh (TryHackMe)" class="page__hero-image">
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Module Review: Custom Alert Rules in Wazuh (TryHackMe)">
+    <meta itemprop="description" content="SOC Lab: Custom Alert Rules in Wazuh (TryHackMe)">
+    <meta itemprop="datePublished" content="2026-02-23T00:00:00+11:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Module Review: Custom Alert Rules in Wazuh (TryHackMe)
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="soc-lab-custom-alert-rules-in-wazuh-tryhackme">SOC Lab: Custom Alert Rules in Wazuh (TryHackMe)</h2>
+
+<h3 id="overview">Overview</h3>
+<p>This lab focused on creating and tuning <strong>custom alert rules in Wazuh</strong> to enhance detection capabilities beyond the default rule set. The objective was to understand how logs are processed through decoders and rules, and how custom logic can be applied to generate meaningful security alerts in a SOC environment.</p>
+
+<p>The exercise emphasized practical detection engineering, including alert validation and noise reduction—key skills for SOC Level 1 analysts.</p>
+
+<p>Wazuh rules are written in XML and rely on decoded log fields to trigger alerts based on defined conditions. Each rule includes a unique ID, severity level, matching logic, and a descriptive message.</p>
+
+<h3 id="basic-rule-components">Basic Rule Components</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;rule</span> <span class="na">id=</span><span class="s">"100001"</span> <span class="na">level=</span><span class="s">"10"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;if_sid&gt;</span>550<span class="nt">&lt;/if_sid&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"srcuser"</span><span class="nt">&gt;</span>root<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;description&gt;</span>
+    Suspicious activity detected: root user action
+  <span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;mitre&gt;</span>T1078<span class="nt">&lt;/mitre&gt;</span>
+<span class="nt">&lt;/rule&gt;</span>
+</code></pre></div></div>
+
+<p><em>rule id</em> – Unique identifier for the rule</p>
+
+<p><em>level</em> – Alert severity (0–15)</p>
+
+<p><em>if_sid / if_matched_sid</em> – Links the rule to a decoder or parent rule</p>
+
+<p><em>field / match</em> – Conditions evaluated against log content</p>
+
+<h2 id="description--human-readable-alert-message"><em>description</em> – Human-readable alert message</h2>
+
+<h2 id="what-i-learned">What I Learned</h2>
+<ul>
+  <li>How Wazuh processes logs using <strong>decoders and rule chains</strong></li>
+  <li>Writing <strong>custom alert rules</strong> with appropriate rule IDs and severity levels</li>
+  <li>Applying frequency and time-based conditions for behavioral detection</li>
+  <li>Testing alerts by generating and simulating log events</li>
+  <li>Refining rule logic to reduce false positives and alert fatigue</li>
+</ul>
+
+<hr />
+
+<h2 id="lab-highlights">Lab Highlights</h2>
+<ul>
+  <li>Created custom Wazuh rules to detect specific log patterns</li>
+  <li>Successfully triggered alerts using simulated events</li>
+  <li>Verified alerts through the Wazuh dashboard</li>
+  <li>Improved alert accuracy by adjusting rule hierarchy and conditions</li>
+</ul>
+
+<hr />
+
+<h2 id="skills-gained">Skills Gained</h2>
+<ul>
+  <li>SIEM rule creation and tuning</li>
+  <li>Wazuh rule syntax and alert logic</li>
+  <li>Log analysis and event correlation</li>
+  <li>False positive reduction techniques</li>
+  <li>SOC Level 1 detection fundamentals</li>
+</ul>
+
+<hr />
+
+<h2 id="lab-evidence">Lab Evidence</h2>
+
+<p><img src="/assets/images/Soc-Lab/Wazuh-Rules/Audit_Rules.png" alt="Wazuh auditd_rules.xml for linux machines" /></p>
+
+<p><em>Screenshot showing an auditd_rules for Linux machines aim to detect file creation events via Syscalls.</em></p>
+
+<hr />
+
+<h2 id="-outcome">✅ Outcome</h2>
+<p>This lab strengthened my understanding of <strong>SIEM customization and alert engineering</strong>, highlighting the importance of tailored detection logic for effective threat visibility in SOC operations. The experience closely mirrors real-world SOC workflows, from detection design to alert validation.</p>
+
+<hr />
+
+<p>```</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2026-02-23T00:00:00+11:00">February 23, 2026</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2026/01/20/usb-forensics.html" class="pagination--pager" title="Investigating a USB Forensics Case
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer">
+  <div style="text-align:center; padding: 1em; font-size: 0.9em;">
+    © 2026 Mauro Sunda · Cybersecurity Portfolio  
+    <br>
+    <a href="https://github.com/Asm0d3us5">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/mauro-sunda-29aa02263">LinkedIn</a>
+  </div>
+</footer>
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -3,16 +3,23 @@ layout: splash
 title: Cybersecurity | Portfolio 
 header:
   overlay_image: /assets/images/banner.jpg
-  overlay_color: "#ffffff2c"
-  overlay_filter: "0.1"
+  overlay_color: "#111"
+  overlay_filter: "0.9"
 ---
 
+<!-- ========================================
+     DARK/LIGHT MODE TOGGLE BUTTON
+     Fixed position in top-right corner
+     ======================================== -->
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button>
 
 <!-- ========================================
      HERO SECTION
      Introduction and quick links
      ======================================== -->
-## Hi, I'm Mauro
+## Hi, I'm Mauro 👋
 
 Cybersecurity student passionate about DFIR, Network Security, and CTFs.  
 This site documents my projects, research, and hands-on labs.
@@ -23,6 +30,9 @@ This site documents my projects, research, and hands-on labs.
   </a>
   <a href="/blog/" class="btn btn-secondary">
     <i class="fas fa-blog"></i> Read Blog
+  </a>
+  <a href="https://github.com/Asm0d3us5" class="btn btn-secondary">
+    <i class="fab fa-github"></i> GitHub
   </a>
 </div>
 

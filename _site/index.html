@@ -82,11 +82,11 @@
 
 
 
-    <!-- start custom head snippets -->
+    <!-- Custom CSS for enhanced portfolio design -->
+<link rel="stylesheet" href="/assets/css/custom.css">
 
-<!-- insert favicons. use https://realfavicongenerator.net/ -->
-
-<!-- end custom head snippets -->
+<!-- Preload Font Awesome for icons -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
   </head>
 
@@ -138,7 +138,7 @@
 
 
 <div class="page__hero--overlay"
-  style="background-color: #ffffff2c; background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/assets/images/banner.jpg');"
+  style="background-color: #111; background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/assets/images/banner.jpg');"
 >
   
     <div class="wrapper">
@@ -177,10 +177,18 @@
 
     <section class="page__content" itemprop="text">
       <!-- ========================================
+     DARK/LIGHT MODE TOGGLE BUTTON
+     Fixed position in top-right corner
+     ======================================== -->
+<p><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+  <i class="fas fa-moon"></i>
+</button></p>
+
+<!-- ========================================
      HERO SECTION
      Introduction and quick links
      ======================================== -->
-<h2 id="hi-im-mauro">Hi, I’m Mauro</h2>
+<h2 id="hi-im-mauro-">Hi, I’m Mauro 👋</h2>
 
 <p>Cybersecurity student passionate about DFIR, Network Security, and CTFs.<br />
 This site documents my projects, research, and hands-on labs.</p>
@@ -191,6 +199,9 @@ This site documents my projects, research, and hands-on labs.</p>
   </a>
   <a href="/blog/" class="btn btn-secondary">
     <i class="fas fa-blog"></i> Read Blog
+  </a>
+  <a href="https://github.com/Asm0d3us5" class="btn btn-secondary">
+    <i class="fab fa-github"></i> GitHub
   </a>
 </div>
 
@@ -221,7 +232,7 @@ This site documents my projects, research, and hands-on labs.</p>
       </div>
       <h3>Blog &amp; Writeups</h3>
       <p>TryHackMe labs, tutorials, and case studies</p>
-      <span class="nav-count">1 posts</span>
+      <span class="nav-count">2 posts</span>
     </a>
   </div>
   
@@ -336,6 +347,36 @@ focusing on identifying r...</p>
 <h2 id="latest-writing">Latest Writing</h2>
 
 <div class="portfolio-grid">
+
+  <div class="portfolio-card">
+    <a href="/2026/02/23/wazuh-rules.html">
+      
+        <img src="/assets/images/default-post.png" alt="Module Review: Custom Alert Rules in Wazuh (TryHackMe)" />
+      
+      
+      <div class="portfolio-content">
+        <h3>Module Review: Custom Alert Rules in Wazuh (TryHackMe)</h3>
+        
+        
+        
+        
+        
+        <p>SOC Lab: Custom Alert Rules in Wazuh (TryHackMe)
+
+</p>
+        
+        
+        <div class="portfolio-tags">
+          
+        </div>
+        
+        
+        <p class="post-date">
+          <i class="far fa-calendar"></i> February 23, 2026
+        </p>
+      </div>
+    </a>
+  </div>
 
   <div class="portfolio-card">
     <a href="/2026/01/20/usb-forensics.html">

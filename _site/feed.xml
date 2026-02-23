@@ -1,4 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-20T22:12:22+11:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mauro Sunda</title><subtitle>Cybersecurity Portfolio | DFIR | Network Security | CTFs</subtitle><author><name>Mauro Sunda</name></author><entry><title type="html">Investigating a USB Forensics Case</title><link href="http://localhost:4000/2026/01/20/usb-forensics.html" rel="alternate" type="text/html" title="Investigating a USB Forensics Case" /><published>2026-01-20T00:00:00+11:00</published><updated>2026-01-20T00:00:00+11:00</updated><id>http://localhost:4000/2026/01/20/usb-forensics</id><content type="html" xml:base="http://localhost:4000/2026/01/20/usb-forensics.html"><![CDATA[<h2 id="example-1-of-blog-article">Example 1 of blog article</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-23T12:10:27+11:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mauro Sunda</title><subtitle>Cybersecurity Portfolio | DFIR | Network Security | CTFs</subtitle><author><name>Mauro Sunda</name></author><entry><title type="html">Module Review: Custom Alert Rules in Wazuh (TryHackMe)</title><link href="http://localhost:4000/2026/02/23/wazuh-rules.html" rel="alternate" type="text/html" title="Module Review: Custom Alert Rules in Wazuh (TryHackMe)" /><published>2026-02-23T00:00:00+11:00</published><updated>2026-02-23T00:00:00+11:00</updated><id>http://localhost:4000/2026/02/23/wazuh-rules</id><content type="html" xml:base="http://localhost:4000/2026/02/23/wazuh-rules.html"><![CDATA[<h2 id="soc-lab-custom-alert-rules-in-wazuh-tryhackme">SOC Lab: Custom Alert Rules in Wazuh (TryHackMe)</h2>
+
+<h3 id="overview">Overview</h3>
+<p>This lab focused on creating and tuning <strong>custom alert rules in Wazuh</strong> to enhance detection capabilities beyond the default rule set. The objective was to understand how logs are processed through decoders and rules, and how custom logic can be applied to generate meaningful security alerts in a SOC environment.</p>
+
+<p>The exercise emphasized practical detection engineering, including alert validation and noise reduction—key skills for SOC Level 1 analysts.</p>
+
+<p>Wazuh rules are written in XML and rely on decoded log fields to trigger alerts based on defined conditions. Each rule includes a unique ID, severity level, matching logic, and a descriptive message.</p>
+
+<h3 id="basic-rule-components">Basic Rule Components</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;rule</span> <span class="na">id=</span><span class="s">"100001"</span> <span class="na">level=</span><span class="s">"10"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;if_sid&gt;</span>550<span class="nt">&lt;/if_sid&gt;</span>
+  <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"srcuser"</span><span class="nt">&gt;</span>root<span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;description&gt;</span>
+    Suspicious activity detected: root user action
+  <span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;mitre&gt;</span>T1078<span class="nt">&lt;/mitre&gt;</span>
+<span class="nt">&lt;/rule&gt;</span>
+</code></pre></div></div>
+
+<p><em>rule id</em> – Unique identifier for the rule</p>
+
+<p><em>level</em> – Alert severity (0–15)</p>
+
+<p><em>if_sid / if_matched_sid</em> – Links the rule to a decoder or parent rule</p>
+
+<p><em>field / match</em> – Conditions evaluated against log content</p>
+
+<h2 id="description--human-readable-alert-message"><em>description</em> – Human-readable alert message</h2>
+
+<h2 id="what-i-learned">What I Learned</h2>
+<ul>
+  <li>How Wazuh processes logs using <strong>decoders and rule chains</strong></li>
+  <li>Writing <strong>custom alert rules</strong> with appropriate rule IDs and severity levels</li>
+  <li>Applying frequency and time-based conditions for behavioral detection</li>
+  <li>Testing alerts by generating and simulating log events</li>
+  <li>Refining rule logic to reduce false positives and alert fatigue</li>
+</ul>
+
+<hr />
+
+<h2 id="lab-highlights">Lab Highlights</h2>
+<ul>
+  <li>Created custom Wazuh rules to detect specific log patterns</li>
+  <li>Successfully triggered alerts using simulated events</li>
+  <li>Verified alerts through the Wazuh dashboard</li>
+  <li>Improved alert accuracy by adjusting rule hierarchy and conditions</li>
+</ul>
+
+<hr />
+
+<h2 id="skills-gained">Skills Gained</h2>
+<ul>
+  <li>SIEM rule creation and tuning</li>
+  <li>Wazuh rule syntax and alert logic</li>
+  <li>Log analysis and event correlation</li>
+  <li>False positive reduction techniques</li>
+  <li>SOC Level 1 detection fundamentals</li>
+</ul>
+
+<hr />
+
+<h2 id="lab-evidence">Lab Evidence</h2>
+
+<p><img src="/assets/images/Soc-Lab/Wazuh-Rules/Audit_Rules.png" alt="Wazuh auditd_rules.xml for linux machines" /></p>
+
+<p><em>Screenshot showing an auditd_rules for Linux machines aim to detect file creation events via Syscalls.</em></p>
+
+<hr />
+
+<h2 id="-outcome">✅ Outcome</h2>
+<p>This lab strengthened my understanding of <strong>SIEM customization and alert engineering</strong>, highlighting the importance of tailored detection logic for effective threat visibility in SOC operations. The experience closely mirrors real-world SOC workflows, from detection design to alert validation.</p>
+
+<hr />
+
+<p>```</p>]]></content><author><name>Mauro Sunda</name></author><summary type="html"><![CDATA[SOC Lab: Custom Alert Rules in Wazuh (TryHackMe)]]></summary></entry><entry><title type="html">Investigating a USB Forensics Case</title><link href="http://localhost:4000/2026/01/20/usb-forensics.html" rel="alternate" type="text/html" title="Investigating a USB Forensics Case" /><published>2026-01-20T00:00:00+11:00</published><updated>2026-01-20T00:00:00+11:00</updated><id>http://localhost:4000/2026/01/20/usb-forensics</id><content type="html" xml:base="http://localhost:4000/2026/01/20/usb-forensics.html"><![CDATA[<h2 id="example-1-of-blog-article">Example 1 of blog article</h2>
 <p>Part 1</p>
 
 <p>```</p>]]></content><author><name>Mauro Sunda</name></author><summary type="html"><![CDATA[Example 1 of blog article Part 1]]></summary></entry></feed>
