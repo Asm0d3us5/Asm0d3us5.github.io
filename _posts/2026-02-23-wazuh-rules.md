@@ -4,8 +4,7 @@ date: 2026-02-23
 layout: single
 header:
    image: /assets/images/Soc-Lab/Wazuh-rules/wazuh.png
-   overlay_image: /assets/images/Soc-Lab/Wazuh-rules/wazuh.png
-   overlay_filter: 0.3 
+   overlay_image: /assets/images/Soc-Lab/Wazuh-rules/wazuh.png 
 ---
 
 ## SOC Lab: Custom Alert Rules in Wazuh (TryHackMe)
@@ -69,7 +68,7 @@ Wazuh rules are written in XML and rely on decoded log fields to trigger alerts 
 
 ## Lab Evidence
 
-![Wazuh auditd_rules.xml for linux machines] (/assets/images/Soc-Lab/Wazuh-rules/Audit_Rules.png)
+![Wazuh auditd_rules.xml for linux machines](/assets/images/Soc-Lab/Wazuh-rules/Audit_Rules.png)
 
 *Screenshot showing an auditd_rules for Linux machines aim to detect file creation events via Syscalls.*
 
