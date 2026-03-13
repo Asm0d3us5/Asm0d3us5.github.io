@@ -1,6 +1,6 @@
 ---
 title: "Module Review: Advanced ELK Queries (TryHackMe)"
-date: 2026-02-23
+date: 2026-03-08
 layout: single
 header:
    image: /assets/images/Soc-Lab/Advanced-ELK-Queries/Advanced ELK Queries(main).png
