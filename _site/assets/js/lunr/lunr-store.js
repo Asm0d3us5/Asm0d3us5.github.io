@@ -11,6 +11,12 @@ var store = [{
         "url": "/2026/02/23/wazuh-rules.html",
         "teaser": null
       },{
+        "title": "Module Review: Advanced ELK Queries (TryHackMe)",
+        "excerpt":"SOC Lab: Advanced ELK Queries (TryHackMe) Overview The Advanced ELK Queries room on TryHackMe focuses on developing practical log analysis skills using the Elastic Stack, a widely used platform for security monitoring and log management. The stack includes Elasticsearch for indexing and storing log data, Logstash for processing logs, and...","categories": [],
+        "tags": [],
+        "url": "/2026/02/23/Advanced-ELK-Queries.html",
+        "teaser": null
+      },{
         "title": "USB Forensics Investigation",
         "excerpt":"Overview This project investigates a USB drive related to a computer fraud case, focusing on identifying relevant artifacts, recovering deleted files, and validating digital evidence using forensic techniques. Tools Used Autopsy Foremost FTK Imager What I Learned File recovery techniques and carving deleted data from storage media Metadata analysis to...","categories": [],
         "tags": ["DFIR","Autopsy","Linux"],
