@@ -115,10 +115,24 @@ Additionally, the lab reinforced how powerful the Elastic Stack can be for secur
 ---
 
 ## Lab Evidence
+![Advanced-ELK-queries.xml](\assets\images\Soc-Lab\Advanced-ELK-Queries\Fuzzy Searches.png)
 
-
+*Screenshot showing fuzzy Search from the TryHackMe lab.*
 
 ---
+
+![Advanced-ELK-queries.xml](\assets\images\Soc-Lab\Advanced-ELK-Queries\Nested Queries.png)
+
+*Screenshot showing Nested Queries from a TryHackMe lab .*
+
+---
+
+![Advanced-ELK-queries.xml](\assets\images\Soc-Lab\Advanced-ELK-Queries\Regular Expression.png)
+
+*Screenshot showing the use of a Regex to search for a "Ransomware" from a TryHackMe Lab.*
+
+---
+
 
 ## ✅ Outcome
 The lab enhanced my ability to analyse large volumes of security logs using advanced **ELK queries**, improving efficiency in detecting suspicious activity and indicators of compromise. It provided practical experience in applying logical conditions, time filters, and pattern matching to support threat hunting and incident response in a SOC environment.
