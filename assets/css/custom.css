@@ -13,6 +13,7 @@
    9. Typography & Content
    10. Animations
    11. Responsive Design
+   12. Remove Underlines from Links
    ======================================== */
 
 
@@ -666,4 +667,74 @@ pre code {
   .portfolio-card {
     break-inside: avoid;
   }
+}
+
+/* ========================================
+   12. REMOVE UNDERLINES FROM LINKS
+   Clean link styling for navigation and cards
+   ======================================== */
+ 
+/* Navigation cards - no underlines */
+.nav-card a,
+.nav-card a:hover,
+.nav-card a:focus,
+.nav-card a:active {
+  text-decoration: none !important;
+}
+ 
+/* Portfolio cards - no underlines */
+.portfolio-card a,
+.portfolio-card a:hover,
+.portfolio-card a:focus,
+.portfolio-card a:active {
+  text-decoration: none !important;
+}
+ 
+/* All buttons - no underlines */
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active {
+  text-decoration: none !important;
+}
+ 
+/* Hero buttons section */
+.hero-buttons a,
+.hero-buttons a:hover,
+.hero-buttons a:focus {
+  text-decoration: none !important;
+}
+ 
+/* Contact buttons */
+.contact-buttons a,
+.contact-buttons a:hover,
+.contact-buttons a:focus {
+  text-decoration: none !important;
+}
+ 
+/* Section call-to-actions */
+.section-cta a,
+.section-cta a:hover,
+.section-cta a:focus {
+  text-decoration: none !important;
+}
+ 
+/* Focus Grid section */
+.focus-grid a,
+.focus-section a {
+  text-decoration: none !important;
+}
+ 
+/* Keep underlines only in main content text */
+.page__content p a {
+  text-decoration: underline;
+}
+ 
+/* But remove from specific components even in content */
+.page__content .portfolio-card a,
+.page__content .nav-card a,
+.page__content .btn,
+.page__content .hero-buttons a,
+.page__content .contact-buttons a {
+  text-decoration: none !important;
 }
