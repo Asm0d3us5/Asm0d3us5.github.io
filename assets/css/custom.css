@@ -14,6 +14,7 @@
    10. Animations
    11. Responsive Design
    12. Remove Underlines from Links
+   13. Round the profile picture
    ======================================== */
 
 
@@ -30,8 +31,8 @@
   --text-secondary: #a0a0a0;
   --border-color: rgba(255, 255, 255, 0.1);
   --shadow: rgba(0, 0, 0, 0.3);
-  --accent: #4a9eff;
-  --accent-hover: #2980ff;
+  --accent: #4ab1ff;
+  --accent-hover: #5729ff;
 }
 
 /* Light Theme Override */
@@ -43,8 +44,8 @@
   --text-secondary: #6e6e73;
   --border-color: rgba(0, 0, 0, 0.1);
   --shadow: rgba(0, 0, 0, 0.1);
-  --accent: #0071e3;
-  --accent-hover: #0077ed;
+  --accent: #6041e7;
+  --accent-hover: #7223e1;
 }
 
 
@@ -737,4 +738,34 @@ pre code {
 .page__content .hero-buttons a,
 .page__content .contact-buttons a {
   text-decoration: none !important;
+}
+
+/* ========================================
+   13. Round the profile picture
+   Make avatar perfectly round instead of oval
+   Add this to your custom.css
+   ======================================== */
+ 
+/* Author profile avatar - make it perfectly round */
+.author__avatar img,
+.author__avatar {
+  border-radius: 50% !important;
+  width: 150px !important;
+  height: 150px !important;
+  object-fit: cover !important;
+}
+ 
+/* Sidebar author avatar */
+.sidebar .author__avatar img {
+  border-radius: 50% !important;
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: cover !important;
+}
+ 
+/* Make sure the container is also square */
+.author__avatar {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
 }

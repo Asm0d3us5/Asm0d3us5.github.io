@@ -22,6 +22,21 @@ author:
   name: Mauro Sunda
   avatar: "/assets/images/profile.jpg"
   bio: "Cybersecurity student passionate about DFIR, CTFs, and security research."
+  location: "Melbourne, Australia"  # Add this
+  email: "MauroSunda@protonmail.com"  # Add this
+  links:  
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:MauroSunda@protonmail.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/Asm0d3us5"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/mauro-sunda-29aa02263"
+    - label: "TryHackMe"
+      icon: "fas fa-fw fa-flag"
+      url: "https://tryhackme.com/p/Asm0d3us5"
 
 collections:
   projects:
