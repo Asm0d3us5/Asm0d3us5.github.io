@@ -25,9 +25,6 @@ author:
   location: "Melbourne, Australia"  
   email: "MauroSunda@protonmail.com"  
   links:  
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:MauroSunda@protonmail.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/Asm0d3us5"
