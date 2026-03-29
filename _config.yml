@@ -22,8 +22,7 @@ author:
   name: Mauro Sunda
   avatar: "/assets/images/profile.jpg"
   bio: "Cybersecurity student passionate about DFIR, CTFs, and security research."
-  location: "Melbourne, Australia"  # Add this
-  email: "MauroSunda@protonmail.com"  # Add this
+  location: "Melbourne, Australia"  
   links:  
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
