@@ -6,7 +6,7 @@ excerpt: "Designed and deployed a production-style WordPress architecture on AWS
 tags: [AWS, Cloud, DFIR, CloudFormation, IaC, WordPress, RDS, S3, Auto Scaling]
 difficulty: Intermediate
 platform: Deakin SIT233
-image: /assets/images/wordpress-aws-banner.jpg
+image: /assets/images/projects/wordpress-aws-banner.jpg
 toc: true
 ---
 

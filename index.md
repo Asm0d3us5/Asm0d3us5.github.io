@@ -67,7 +67,20 @@ title: "Cybersecurity | Portfolio"
         <p>{{ project.excerpt | strip_html | truncate: 110 }}</p>
         {% if project.tags %}
         <div class="portfolio-tags">
-          {% for tag in project.tags limit: 4 %}<span>{{ tag }}</span>{% endfor %}
+          {% for tag in project.tags limit: 4 %}
+            {% assign tl = tag | downcase %}
+            {% if tl == "dfir" or tl == "forensics" %}
+              <span class="skill-tag skill-dfir">{{ tag }}</span>
+            {% elsif tl == "aws" or tl == "network" or tl == "cloud" or tl == "ctf" %}
+              <span class="skill-tag skill-net">{{ tag }}</span>
+            {% elsif tl == "iac" or tl == "cloudformation" or tl == "elk" or tl == "siem" %}
+              <span class="skill-tag skill-siem">{{ tag }}</span>
+            {% elsif tl == "python" or tl == "bash" or tl == "wordpress" or tl == "linux" %}
+              <span class="skill-tag skill-lang">{{ tag }}</span>
+            {% else %}
+              <span class="skill-tag skill-net">{{ tag }}</span>
+            {% endif %}
+          {% endfor %}
         </div>
         {% endif %}
       </div>

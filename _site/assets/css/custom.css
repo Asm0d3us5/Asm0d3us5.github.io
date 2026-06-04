@@ -243,13 +243,15 @@ body {
   text-decoration: none; /* Prevent link underline */
 }
 
-/* Card Image: Fixed height, cover to fill */
+/* Card Image: fixed height, cover crop, no overflow */
 .portfolio-card img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
+  object-position: center top;
   display: block;
   transition: transform 0.3s ease;
+  overflow: hidden;
 }
 
 /* Image Zoom on Hover */
@@ -259,43 +261,55 @@ body {
 
 /* Card Content Area */
 .portfolio-content {
-  padding: 1.25rem;
+  padding: 1rem 1.25rem 1.25rem;
 }
 
-/* Card Title */
+/* Card Title — override MM bold */
 .portfolio-content h3 {
   margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500 !important;
   color: var(--text-primary);
+  line-height: 1.4;
 }
 
 /* Card Description */
 .portfolio-content p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin-bottom: 0.6rem;
   color: var(--text-secondary);
 }
 
 /* Tags Container */
 .portfolio-tags {
-  margin-top: 0.75rem;
+  margin-top: 0.6rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 5px;
 }
 
-/* Individual Tag */
+/* Individual Tag — colour-coded by content */
 .portfolio-tags span {
   display: inline-block;
-  background: var(--bg-secondary);
-  padding: 0.2rem 0.6rem;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.7rem;
+  padding: 2px 9px;
   border-radius: 999px;
-  font-size: 0.75rem;
-  color: var(--text-secondary);
   border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
 }
+
+/* Colour overrides for known tag values */
+.portfolio-tags span[data-tag="DFIR"],
+.portfolio-tags span:not([class])[data-cat="dfir"] { background: rgba(40,167,69,0.1); color: #3fb950; border-color: rgba(63,185,80,0.25); }
+
+/* Auto-colour tags by text content using :has-text workaround — 
+   we target the common values directly */
+.portfolio-tags span { transition: opacity 0.15s; }
+.portfolio-tags span:hover { opacity: 0.8; }
 
 
 /* ========================================
