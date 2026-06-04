@@ -16,8 +16,26 @@ layout: default
       {% if page.tags %}
       <div class="portfolio-tags">
         {% for tag in page.tags %}
-          <span>{{ tag }}</span>
+          {% assign tl = tag | downcase %}
+          {% if tl == "dfir" or tl == "forensics" %}
+            <span class="skill-tag skill-dfir">{{ tag }}</span>
+          {% elsif tl == "aws" or tl == "network" or tl == "cloud" or tl == "ctf" or tl == "rds" or tl == "s3" or tl == "auto scaling" %}
+            <span class="skill-tag skill-net">{{ tag }}</span>
+          {% elsif tl == "iac" or tl == "cloudformation" or tl == "elk" or tl == "siem" or tl == "wordpress" %}
+            <span class="skill-tag skill-siem">{{ tag }}</span>
+          {% elsif tl == "python" or tl == "bash" or tl == "linux" %}
+            <span class="skill-tag skill-lang">{{ tag }}</span>
+          {% else %}
+            <span class="skill-tag skill-net">{{ tag }}</span>
+          {% endif %}
         {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if page.difficulty or page.platform %}
+      <div style="margin-top: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        {% if page.difficulty %}<span class="difficulty-badge difficulty-{{ page.difficulty | downcase }}">{{ page.difficulty }}</span>{% endif %}
+        {% if page.platform %}<span class="platform-badge">{{ page.platform }}</span>{% endif %}
       </div>
       {% endif %}
     </div>
@@ -28,4 +46,3 @@ layout: default
   </div>
 
 </div>
-

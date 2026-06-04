@@ -1458,3 +1458,64 @@ pre code {
     margin-top: 1rem;
   }
 }
+
+
+/* ========================================
+   21. PROJECT PAGE — META GRID & BODY
+   ======================================== */
+
+/* Meta grid inside project body */
+.project-body .project-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 0 2rem;
+}
+
+.project-body .meta-item {
+  background: var(--bg-card);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.project-body .meta-label {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.project-body .meta-val {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Project card image — cap height on detail page */
+.project-card img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Project card title on detail page */
+.project-card .portfolio-content h1 {
+  font-size: 1.5rem;
+  font-weight: 500 !important;
+  margin: 0.75rem 0 0.5rem;
+  color: var(--text-primary);
+}
+
+/* Tech stack tags inside project-body */
+.project-body .skills-grid {
+  margin: 0.75rem 0 1rem;
+}
