@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_AU">
 <meta property="og:site_name" content="Mauro Sunda">
 <meta property="og:title" content="            Cybersecurity      Portfolio      ">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:url" content="http://localhost:4000/index.md.bak">
 
 
   <meta property="og:description" content="Cybersecurity Portfolio       DFIR       Network Security       CTFs">
@@ -39,7 +39,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/index.md.bak">
 
 
 
@@ -176,13 +176,12 @@
     
 
     <section class="page__content" itemprop="text">
-      <p><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
   <i class="fas fa-moon"></i>
-</button></p>
+</button>
 
 <!-- HERO -->
-<div class="hero-grid" id="hero-section">
-<canvas id="neural-bg" aria-hidden="true"></canvas>
+<div class="hero-grid">
   <div class="hero-left">
     <div class="hero-eyebrow">// cybersecurity portfolio</div>
     <h1 class="hero-name">Mauro Sunda</h1>
@@ -201,7 +200,7 @@
   </div>
 </div>
 
-<hr />
+---
 
 <!-- SKILLS -->
 <div class="section-label">// skills</div>
@@ -219,7 +218,7 @@
   <span class="skill-tag skill-lang">Bash</span>
 </div>
 
-<hr />
+---
 
 <!-- FEATURED PROJECTS -->
 <div class="section-label">// featured projects</div>
@@ -230,7 +229,7 @@
   <div class="portfolio-card">
     <a href="/projects/usb-forensics/">
       
-        <img src="/assets/images/usb.jpg" alt="USB Forensics Investigation" />
+        <img src="/assets/images/usb.jpg" alt="USB Forensics Investigation">
       
       <div class="portfolio-content">
         <h3>USB Forensics Investigation</h3>
@@ -260,7 +259,7 @@ focusing on identifying r...</p>
   <a href="/projects/" class="btn btn-primary">View All Projects →</a>
 </div>
 
-<hr />
+---
 
 <!-- LATEST WRITING -->
 <div class="section-label">// latest writing</div>
@@ -303,7 +302,7 @@ focusing on identifying r...</p>
   <a href="/blog/" class="btn btn-secondary">All Posts →</a>
 </div>
 
-<hr />
+---
 
 <!-- CONTACT -->
 <div class="contact-section">
@@ -315,8 +314,6 @@ focusing on identifying r...</p>
     <a href="mailto:MauroSunda@protonmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
   </div>
 </div>
-
-<script src="/assets/js/neural-bg.js"></script>
 
 <script>
 (function() {
@@ -359,7 +356,6 @@ focusing on identifying r...</p>
   }
 })();
 </script>
-
 
     </section>
   </article>

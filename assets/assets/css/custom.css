@@ -15,15 +15,17 @@
    11. Responsive Design
    12. Remove Underlines from Links
    13. Round the profile picture
+   14. Hero Grid & Status Pills        [NEW]
+   15. Skill Tags                      [NEW]
+   16. Posts List                      [NEW]
+   17. Section Labels                  [NEW]
    ======================================== */
 
 
 /* ========================================
    1. CSS VARIABLES (THEME COLORS)
-   Define all colors once, use everywhere
    ======================================== */
 :root {
-  /* Default: Dark Theme */
   --bg-primary: #0a0a0d;
   --bg-secondary: #13131a;
   --bg-card: #13131a;
@@ -35,7 +37,6 @@
   --accent-hover: #5729ff;
 }
 
-/* Light Theme Override */
 [data-theme="light"] {
   --bg-primary: #f5f5f7;
   --bg-secondary: #f8f9fa;
@@ -51,7 +52,6 @@
 
 /* ========================================
    2. GLOBAL RESETS & SMOOTH SCROLLING
-   Base styles that apply to entire page
    ======================================== */
 html {
   scroll-behavior: smooth;
@@ -63,7 +63,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Apply dark theme to Minimal Mistakes page elements */
 [data-theme="dark"] .page,
 [data-theme="dark"] .page__content {
   background-color: var(--bg-primary);
@@ -73,36 +72,27 @@ body {
 
 /* ========================================
    3. DARK/LIGHT MODE TOGGLE BUTTON
-   Floating button in top-right corner
    ======================================== */
 .theme-toggle {
-  /* Positioning: Fixed to viewport, top-right */
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
   z-index: 1000;
-  
-  /* Styling: Circle button with theme colors */
   background: var(--bg-card);
   color: var(--text-primary);
   border: 2px solid var(--border-color);
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  
-  /* Layout: Center the icon */
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* Interaction */
   cursor: pointer;
   font-size: 1.2rem;
   box-shadow: 0 4px 12px var(--shadow);
   transition: all 0.3s ease;
 }
 
-/* Hover Effect: Scale up and rotate with accent color */
 .theme-toggle:hover {
   transform: scale(1.1) rotate(20deg);
   background: var(--accent);
@@ -110,18 +100,24 @@ body {
   border-color: var(--accent);
 }
 
-/* Active/Click Effect: Scale down slightly */
 .theme-toggle:active {
   transform: scale(0.95);
+}
+
+.theme-toggle-active {
+  animation: spin 0.3s ease-in-out;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
 }
 
 
 /* ========================================
    4. PAGE NAVIGATION CARDS
-   Four cards for main site sections
    ======================================== */
-
-/* Grid Container: Auto-fit columns, minimum 220px */
 .page-navigation {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -129,7 +125,6 @@ body {
   margin: 2rem 0;
 }
 
-/* Individual Card Styling */
 .nav-card {
   background: var(--bg-card);
   border: 2px solid var(--border-color);
@@ -138,10 +133,9 @@ body {
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden; /* Needed for the top border animation */
+  overflow: hidden;
 }
 
-/* Top Border Animation (appears on hover) */
 .nav-card::before {
   content: '';
   position: absolute;
@@ -150,29 +144,26 @@ body {
   width: 100%;
   height: 4px;
   background: linear-gradient(90deg, var(--accent), var(--accent-hover));
-  transform: scaleX(0); /* Hidden by default */
+  transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
 .nav-card:hover::before {
-  transform: scaleX(1); /* Expand on hover */
+  transform: scaleX(1);
 }
 
-/* Card Hover Effect: Lift up with shadow */
 .nav-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 30px var(--shadow);
   border-color: var(--accent);
 }
 
-/* Link Styling: Remove underline, inherit color */
 .nav-card a {
   text-decoration: none;
   color: var(--text-primary);
   display: block;
 }
 
-/* Icon: Large, colored, scales on hover */
 .nav-icon {
   font-size: 2.5rem;
   color: var(--accent);
@@ -181,17 +172,15 @@ body {
 }
 
 .nav-card:hover .nav-icon {
-  transform: scale(1.2); /* Zoom in on hover */
+  transform: scale(1.2);
 }
 
-/* Card Title */
 .nav-card h3 {
   margin: 0.5rem 0;
   font-size: 1.25rem;
   color: var(--text-primary);
 }
 
-/* Card Description */
 .nav-card p {
   font-size: 0.9rem;
   color: var(--text-secondary);
@@ -199,7 +188,6 @@ body {
   line-height: 1.5;
 }
 
-/* Count Badge: Shows number of items */
 .nav-count {
   display: inline-block;
   background: var(--accent);
@@ -213,10 +201,7 @@ body {
 
 /* ========================================
    5. PORTFOLIO GRID & CARDS
-   Display projects and posts in responsive grid
    ======================================== */
-
-/* Grid Container: Auto-fill columns, minimum 280px */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -224,26 +209,23 @@ body {
   margin: 2rem 0;
 }
 
-/* Individual Portfolio Card */
 .portfolio-card {
   background: var(--bg-card);
   border-radius: 12px;
-  overflow: hidden; /* Keeps image inside rounded corners */
+  overflow: hidden;
   border: 1px solid var(--border-color);
   transition: all 0.25s ease;
   text-decoration: none;
   display: block;
 }
 
-/* Card Hover Effect: Lift and add shadow */
 .portfolio-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 30px var(--shadow);
   border-color: var(--accent);
-  text-decoration: none; /* Prevent link underline */
+  text-decoration: none;
 }
 
-/* Card Image: Fixed height, cover to fill */
 .portfolio-card img {
   width: 100%;
   height: 200px;
@@ -252,17 +234,14 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* Image Zoom on Hover */
 .portfolio-card:hover img {
   transform: scale(1.05);
 }
 
-/* Card Content Area */
 .portfolio-content {
   padding: 1.25rem;
 }
 
-/* Card Title */
 .portfolio-content h3 {
   margin-top: 0;
   margin-bottom: 0.75rem;
@@ -270,7 +249,6 @@ body {
   color: var(--text-primary);
 }
 
-/* Card Description */
 .portfolio-content p {
   font-size: 0.9rem;
   line-height: 1.5;
@@ -278,7 +256,6 @@ body {
   color: var(--text-secondary);
 }
 
-/* Tags Container */
 .portfolio-tags {
   margin-top: 0.75rem;
   display: flex;
@@ -286,7 +263,6 @@ body {
   gap: 0.4rem;
 }
 
-/* Individual Tag */
 .portfolio-tags span {
   display: inline-block;
   background: var(--bg-secondary);
@@ -300,10 +276,7 @@ body {
 
 /* ========================================
    6. BADGES (DIFFICULTY & PLATFORM)
-   Color-coded badges for projects/posts
    ======================================== */
-
-/* Base Badge Styling */
 .difficulty-badge,
 .platform-badge {
   display: inline-block;
@@ -315,60 +288,42 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Difficulty Badges: Color-coded by level */
-.difficulty-easy { 
+.difficulty-easy {
   background: rgba(40, 167, 69, 0.15);
   color: #28a745;
   border: 1px solid rgba(40, 167, 69, 0.3);
 }
 
-.difficulty-medium { 
+.difficulty-medium {
   background: rgba(255, 193, 7, 0.15);
   color: #ffc107;
   border: 1px solid rgba(255, 193, 7, 0.3);
 }
 
-.difficulty-hard { 
+.difficulty-hard {
   background: rgba(220, 53, 69, 0.15);
   color: #dc3545;
   border: 1px solid rgba(220, 53, 69, 0.3);
 }
 
-.difficulty-insane { 
+.difficulty-insane {
   background: rgba(111, 66, 193, 0.15);
   color: #6f42c1;
   border: 1px solid rgba(111, 66, 193, 0.3);
 }
 
-/* Dark Mode: Brighter colors for better visibility */
-[data-theme="dark"] .difficulty-easy {
-  background: rgba(40, 167, 69, 0.2);
-  color: #48d460;
-}
+[data-theme="dark"] .difficulty-easy { background: rgba(40, 167, 69, 0.2); color: #48d460; }
+[data-theme="dark"] .difficulty-medium { background: rgba(255, 193, 7, 0.2); color: #ffd93d; }
+[data-theme="dark"] .difficulty-hard { background: rgba(220, 53, 69, 0.2); color: #ff6b7a; }
 
-[data-theme="dark"] .difficulty-medium {
-  background: rgba(255, 193, 7, 0.2);
-  color: #ffd93d;
-}
-
-[data-theme="dark"] .difficulty-hard {
-  background: rgba(220, 53, 69, 0.2);
-  color: #ff6b7a;
-}
-
-/* Platform Badges: Blue accent */
 .platform-badge {
   background: rgba(0, 123, 255, 0.15);
   color: #007bff;
   border: 1px solid rgba(0, 123, 255, 0.3);
 }
 
-[data-theme="dark"] .platform-badge {
-  background: rgba(74, 158, 255, 0.2);
-  color: #4a9eff;
-}
+[data-theme="dark"] .platform-badge { background: rgba(74, 158, 255, 0.2); color: #4a9eff; }
 
-/* Specific Platform Colors */
 .platform-htb {
   background: rgba(155, 255, 0, 0.15);
   color: #9bff00;
@@ -384,10 +339,7 @@ body {
 
 /* ========================================
    7. BUTTONS
-   Primary and secondary button styles
    ======================================== */
-
-/* Base Button Styling */
 .btn {
   display: inline-block;
   padding: 0.7rem 1.5rem;
@@ -401,7 +353,6 @@ body {
   cursor: pointer;
 }
 
-/* Primary Button: Accent color background */
 .btn-primary {
   background: var(--accent);
   color: white;
@@ -412,11 +363,10 @@ body {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
   text-decoration: none;
-  transform: translateY(-2px); /* Lift on hover */
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow);
 }
 
-/* Secondary Button: Transparent with border */
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
@@ -433,10 +383,7 @@ body {
 
 /* ========================================
    8. CODE BLOCKS & TERMINAL
-   Styling for code snippets and terminal output
    ======================================== */
-
-/* Terminal Style Block: Green text on dark background */
 .terminal {
   background: #1a1a1d;
   border: 2px solid rgba(0, 255, 0, 0.3);
@@ -448,20 +395,17 @@ body {
   overflow-x: auto;
 }
 
-/* Add $ prefix to terminal */
 .terminal::before {
   content: '$ ';
   color: #00ff00;
   font-weight: bold;
 }
 
-/* Code Font */
 pre, code {
   font-family: 'Fira Code', 'Courier New', monospace;
   font-size: 0.9rem;
 }
 
-/* Code Blocks: Blue left border */
 pre {
   background: var(--bg-card);
   border-left: 4px solid var(--accent);
@@ -472,7 +416,6 @@ pre {
   line-height: 1.6;
 }
 
-/* Inline Code */
 code {
   background: rgba(255, 255, 255, 0.05);
   padding: 0.2rem 0.4rem;
@@ -481,22 +424,21 @@ code {
   color: var(--text-primary);
 }
 
-/* Code inside pre block: Remove background */
 pre code {
   background: transparent;
   padding: 0;
 }
 
+
 /* ========================================
-   9.1. TYPOGRAPHY & CONTENT
-   Project page and content area styling
+   9. TYPOGRAPHY & CONTENT
    ======================================== */
-   
 .page__hero,
 .page__hero--overlay {
-  max-height: 280px; 
+  max-height: 280px;
   overflow: hidden;
 }
+
 .page__hero img,
 .page__hero--overlay img {
   width: 100% !important;
@@ -505,27 +447,15 @@ pre code {
   object-position: center !important;
 }
 
-.page__hero-title {
-  font-size: 2rem;
-}
+.page__hero-title { font-size: 2rem; }
+.page__hero-lead { font-size: 1rem; }
 
-.page__hero-lead {
-  font-size: 1rem;
-}
-
-/* ========================================
-   9. TYPOGRAPHY & CONTENT
-   Project page and content area styling
-   ======================================== */
-
-/* Project Wrapper: Max width container */
 .project-wrapper {
   max-width: 880px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
 }
 
-/* Project Images */
 .project-card img {
   display: block;
   max-width: 600px;
@@ -533,7 +463,6 @@ pre code {
   border-radius: 12px;
 }
 
-/* Project Body Text */
 .project-body {
   margin-top: 2.5rem;
   line-height: 1.7;
@@ -541,19 +470,14 @@ pre code {
   color: var(--text-primary);
 }
 
-/* Project Headings */
 .project-body h2,
 .project-body h3 {
   margin-top: 2.5rem;
   color: var(--text-primary);
 }
 
-/* Project Lists */
-.project-body ul {
-  padding-left: 1.2rem;
-}
+.project-body ul { padding-left: 1.2rem; }
 
-/* Project Links */
 .project-body a {
   color: var(--accent);
   text-decoration: none;
@@ -561,77 +485,44 @@ pre code {
   transition: border-color 0.25s ease;
 }
 
-.project-body a:hover {
-  border-bottom-color: var(--accent);
-}
+.project-body a:hover { border-bottom-color: var(--accent); }
 
 
 /* ========================================
    10. ANIMATIONS
-   Fade-in effects and transitions
    ======================================== */
-
-/* Fade In From Bottom Animation */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Apply Animation to Cards */
 .portfolio-card,
 .nav-card {
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Stagger Animation: Each card appears slightly after the previous */
-.portfolio-card:nth-child(1),
-.nav-card:nth-child(1) { animation-delay: 0.1s; }
-
-.portfolio-card:nth-child(2),
-.nav-card:nth-child(2) { animation-delay: 0.2s; }
-
-.portfolio-card:nth-child(3),
-.nav-card:nth-child(3) { animation-delay: 0.3s; }
-
-.portfolio-card:nth-child(4),
-.nav-card:nth-child(4) { animation-delay: 0.4s; }
-
+.portfolio-card:nth-child(1), .nav-card:nth-child(1) { animation-delay: 0.1s; }
+.portfolio-card:nth-child(2), .nav-card:nth-child(2) { animation-delay: 0.2s; }
+.portfolio-card:nth-child(3), .nav-card:nth-child(3) { animation-delay: 0.3s; }
+.portfolio-card:nth-child(4), .nav-card:nth-child(4) { animation-delay: 0.4s; }
 .portfolio-card:nth-child(5) { animation-delay: 0.5s; }
 .portfolio-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* Accessibility: Focus Outline */
-*:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
+*:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 
 /* ========================================
    11. RESPONSIVE DESIGN
-   Mobile and tablet adjustments
    ======================================== */
-
-/* Tablet and Mobile (768px and below) */
 @media (max-width: 768px) {
-  /* Single Column Grids */
   .portfolio-grid,
   .page-navigation {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
-  
-  /* Shorter Card Images on Mobile */
-  .portfolio-card img {
-    height: 180px;
-  }
-  
-  /* Smaller Toggle Button */
+
+  .portfolio-card img { height: 180px; }
+
   .theme-toggle {
     top: 1rem;
     right: 1rem;
@@ -639,16 +530,27 @@ pre code {
     height: 45px;
     font-size: 1rem;
   }
-  
-  /* Reduce Project Wrapper Padding */
-  .project-wrapper {
-    padding: 2rem 1rem;
+
+  .project-wrapper { padding: 2rem 1rem; }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
   }
+
+  .hero-right {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    margin-top: 1rem;
+  }
+
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn { width: 100%; text-align: center; }
+
+  .contact-buttons { flex-direction: column; align-items: stretch; }
 }
 
-/* Small Mobile (480px and below) */
 @media (max-width: 480px) {
-  /* Stack Buttons Vertically */
   .hero-buttons .btn {
     display: block;
     margin-bottom: 0.5rem;
@@ -657,81 +559,46 @@ pre code {
   }
 }
 
-/* Print Styles: Hide interactive elements */
 @media print {
-  .theme-toggle,
-  .hero-buttons {
-    display: none;
-  }
-  
-  /* Prevent page breaks inside cards */
-  .portfolio-card {
-    break-inside: avoid;
-  }
+  .theme-toggle, .hero-buttons { display: none; }
+  .portfolio-card { break-inside: avoid; }
 }
+
 
 /* ========================================
    12. REMOVE UNDERLINES FROM LINKS
-   Clean link styling for navigation and cards
    ======================================== */
- 
-/* Navigation cards - no underlines */
 .nav-card a,
 .nav-card a:hover,
 .nav-card a:focus,
-.nav-card a:active {
-  text-decoration: none !important;
-}
- 
-/* Portfolio cards - no underlines */
+.nav-card a:active,
 .portfolio-card a,
 .portfolio-card a:hover,
 .portfolio-card a:focus,
-.portfolio-card a:active {
-  text-decoration: none !important;
-}
- 
-/* All buttons - no underlines */
+.portfolio-card a:active,
 .btn,
 .btn:hover,
 .btn:focus,
-.btn:active {
-  text-decoration: none !important;
-}
- 
-/* Hero buttons section */
+.btn:active,
 .hero-buttons a,
 .hero-buttons a:hover,
-.hero-buttons a:focus {
-  text-decoration: none !important;
-}
- 
-/* Contact buttons */
+.hero-buttons a:focus,
 .contact-buttons a,
 .contact-buttons a:hover,
-.contact-buttons a:focus {
-  text-decoration: none !important;
-}
- 
-/* Section call-to-actions */
+.contact-buttons a:focus,
 .section-cta a,
 .section-cta a:hover,
-.section-cta a:focus {
-  text-decoration: none !important;
-}
- 
-/* Focus Grid section */
+.section-cta a:focus,
 .focus-grid a,
-.focus-section a {
+.focus-section a,
+.post-row,
+.post-row:hover,
+.post-row:focus {
   text-decoration: none !important;
 }
- 
-/* Keep underlines only in main content text */
-.page__content p a {
-  text-decoration: underline;
-}
- 
-/* But remove from specific components even in content */
+
+.page__content p a { text-decoration: underline; }
+
 .page__content .portfolio-card a,
 .page__content .nav-card a,
 .page__content .btn,
@@ -740,13 +607,10 @@ pre code {
   text-decoration: none !important;
 }
 
+
 /* ========================================
-   13. Round the profile picture
-   Make avatar perfectly round instead of oval
-     - Applies to both main author profile and sidebar avatar
+   13. ROUND THE PROFILE PICTURE
    ======================================== */
- 
-/* Author profile avatar - make it perfectly round */
 .author__avatar img,
 .author__avatar {
   border-radius: 50% !important;
@@ -754,18 +618,350 @@ pre code {
   height: 150px !important;
   object-fit: cover !important;
 }
- 
-/* Sidebar author avatar */
+
 .sidebar .author__avatar img {
   border-radius: 50% !important;
   width: 120px !important;
   height: 120px !important;
   object-fit: cover !important;
 }
- 
-/* Make sure the container is also square */
+
 .author__avatar {
   display: inline-block;
   width: 150px;
   height: 150px;
+}
+
+@media (max-width: 768px) {
+  .author__avatar img,
+  .author__avatar,
+  .sidebar .author__avatar img {
+    width: 160px !important;
+    height: 160px !important;
+  }
+  .author__avatar { width: 160px; height: 160px; }
+}
+
+.author__avatar img {
+  border: 4px solid var(--accent) !important;
+  box-shadow: 0 0 20px rgba(74, 158, 255, 0.4),
+              0 0 40px rgba(74, 158, 255, 0.2);
+}
+
+.author__avatar img:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+
+/* ========================================
+   14. HERO GRID & STATUS PILLS  [NEW]
+   ======================================== */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  margin: 2rem 0 1rem;
+}
+
+.hero-eyebrow {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+
+.hero-name {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--text-primary);
+}
+
+.hero-role {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.hero-bio {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 1.25rem;
+}
+
+.hero-buttons {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+  padding-top: 0.5rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-green { background: #3fb950; box-shadow: 0 0 6px rgba(63, 185, 80, 0.6); }
+.dot-blue  { background: #4ab1ff; box-shadow: 0 0 6px rgba(74, 177, 255, 0.5); }
+.dot-yellow{ background: #d29922; box-shadow: 0 0 6px rgba(210, 153, 34, 0.5); }
+
+
+/* ========================================
+   15. SKILL TAGS  [NEW]
+   Color-coded by category
+   ======================================== */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1rem 0 1.5rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-1px);
+}
+
+/* DFIR — green */
+.skill-dfir {
+  background: rgba(40, 167, 69, 0.12);
+  color: #3fb950;
+  border: 1px solid rgba(63, 185, 80, 0.3);
+}
+
+/* Network — blue */
+.skill-net {
+  background: rgba(74, 177, 255, 0.12);
+  color: #4ab1ff;
+  border: 1px solid rgba(74, 177, 255, 0.3);
+}
+
+/* SIEM — purple */
+.skill-siem {
+  background: rgba(163, 113, 247, 0.12);
+  color: #a371f7;
+  border: 1px solid rgba(163, 113, 247, 0.3);
+}
+
+/* Languages — amber */
+.skill-lang {
+  background: rgba(210, 153, 34, 0.12);
+  color: #d29922;
+  border: 1px solid rgba(210, 153, 34, 0.3);
+}
+
+/* Light mode overrides for skill tags */
+[data-theme="light"] .skill-dfir { background: rgba(40, 167, 69, 0.08); color: #1a7a30; border-color: rgba(40,167,69,0.25); }
+[data-theme="light"] .skill-net  { background: rgba(24, 95, 165, 0.08); color: #185fa5; border-color: rgba(24,95,165,0.25); }
+[data-theme="light"] .skill-siem { background: rgba(96, 65, 231, 0.08); color: #6041e7; border-color: rgba(96,65,231,0.25); }
+[data-theme="light"] .skill-lang { background: rgba(186, 117, 23, 0.08); color: #ba7517; border-color: rgba(186,117,23,0.25); }
+
+
+/* ========================================
+   16. POSTS LIST  [NEW]
+   Compact blog post rows with type labels
+   ======================================== */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.post-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  text-decoration: none !important;
+  transition: background 0.15s ease;
+}
+
+.post-row:hover {
+  padding-left: 6px;
+}
+
+.post-left {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.post-type {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.post-type-dfir  { background: rgba(40,167,69,0.12); color: #3fb950; border: 1px solid rgba(63,185,80,0.25); }
+.post-type-soc   { background: rgba(74,177,255,0.12); color: #4ab1ff; border: 1px solid rgba(74,177,255,0.25); }
+.post-type-ctf   { background: rgba(163,113,247,0.12); color: #a371f7; border: 1px solid rgba(163,113,247,0.25); }
+.post-type-lab   { background: rgba(210,153,34,0.12); color: #d29922; border: 1px solid rgba(210,153,34,0.25); }
+
+[data-theme="light"] .post-type-dfir  { color: #1a7a30; }
+[data-theme="light"] .post-type-soc   { color: #185fa5; }
+[data-theme="light"] .post-type-ctf   { color: #6041e7; }
+[data-theme="light"] .post-type-lab   { color: #ba7517; }
+
+.post-title {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post-row:hover .post-title {
+  color: var(--accent);
+}
+
+.post-date {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+
+/* ========================================
+   17. SECTION LABELS  [NEW]
+   Monospace divider labels between sections
+   ======================================== */
+.section-label {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.12em;
+  margin: 2rem 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* Section call-to-action */
+.section-cta {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* Contact section */
+.contact-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.contact-description {
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Post date (legacy grid layout) */
+.post-date-small {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+/* Focus grid (legacy) */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.focus-section ul { line-height: 1.8; margin: 0.5rem 0; }
+.focus-section h4 { margin-bottom: 0.75rem; color: var(--text-primary); }
+
+
+/* ========================================
+   18. NEURAL BACKGROUND CANVAS  [NEW]
+   Full-bleed canvas behind hero section
+   ======================================== */
+
+/* Hero wrapper must be positioned so the canvas can be absolute inside it */
+.hero-grid {
+  position: relative;
+}
+
+/* Canvas: fills the hero, sits behind all content */
+#neural-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;   /* never blocks clicks */
+  z-index: 0;
+  border-radius: inherit;
+}
+
+/* Everything inside hero-grid sits above the canvas */
+.hero-grid > *:not(canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Extend hero height so animation has breathing room */
+.hero-grid {
+  min-height: 340px;
+  padding: 3rem 0 2rem;
 }

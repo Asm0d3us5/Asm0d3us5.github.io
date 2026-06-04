@@ -12,8 +12,7 @@ header:
 </button>
 
 <!-- HERO -->
-<div class="hero-grid" id="hero-section">
-<canvas id="neural-bg" aria-hidden="true"></canvas>
+<div class="hero-grid">
   <div class="hero-left">
     <div class="hero-eyebrow">// cybersecurity portfolio</div>
     <h1 class="hero-name">Mauro Sunda</h1>
@@ -132,8 +131,6 @@ header:
     <a href="mailto:MauroSunda@protonmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
   </div>
 </div>
-
-<script src="{{ '/assets/js/neural-bg.js' | relative_url }}"></script>
 
 <script>
 (function() {
