@@ -1,10 +1,6 @@
 ---
-layout: splash
+layout: home-custom
 title: "Cybersecurity | Portfolio"
-header:
-  overlay_image: /assets/images/banner.jpg
-  overlay_color: "#0d1117"
-  overlay_filter: "0.92"
 ---
 
 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
@@ -12,8 +8,7 @@ header:
 </button>
 
 <!-- HERO -->
-<div class="hero-grid" id="hero-section">
-<canvas id="neural-bg" aria-hidden="true"></canvas>
+<div class="hero-grid">
   <div class="hero-left">
     <div class="hero-eyebrow">// cybersecurity portfolio</div>
     <h1 class="hero-name">Mauro Sunda</h1>
@@ -67,18 +62,12 @@ header:
       {% endif %}
       <div class="portfolio-content">
         <h3>{{ project.title }}</h3>
-        {% if project.difficulty %}
-        <span class="difficulty-badge difficulty-{{ project.difficulty | downcase }}">{{ project.difficulty }}</span>
-        {% endif %}
-        {% if project.platform %}
-        <span class="platform-badge">{{ project.platform }}</span>
-        {% endif %}
+        {% if project.difficulty %}<span class="difficulty-badge difficulty-{{ project.difficulty | downcase }}">{{ project.difficulty }}</span>{% endif %}
+        {% if project.platform %}<span class="platform-badge">{{ project.platform }}</span>{% endif %}
         <p>{{ project.excerpt | strip_html | truncate: 110 }}</p>
         {% if project.tags %}
         <div class="portfolio-tags">
-          {% for tag in project.tags limit: 4 %}
-            <span>{{ tag }}</span>
-          {% endfor %}
+          {% for tag in project.tags limit: 4 %}<span>{{ tag }}</span>{% endfor %}
         </div>
         {% endif %}
       </div>
@@ -111,7 +100,7 @@ header:
       {% endif %}
       <span class="post-title">{{ post.title }}</span>
     </div>
-    <span class="post-date">{{ post.date | date: "%b %Y" }}</span>
+    <span class="post-date-label">{{ post.date | date: "%b %Y" }}</span>
   </a>
 {% endfor %}
 </div>
@@ -133,45 +122,81 @@ header:
   </div>
 </div>
 
-<script src="{{ '/assets/js/neural-bg.js' | relative_url }}"></script>
-
 <script>
-(function() {
+(function () {
   'use strict';
-  const toggleButton = document.getElementById('theme-toggle');
-  const html = document.documentElement;
-  const THEME_KEY = 'mauro-portfolio-theme';
 
-  function getSavedTheme() {
-    const saved = localStorage.getItem(THEME_KEY);
-    if (saved) return saved;
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const btn   = document.getElementById('theme-toggle');
+  const html  = document.documentElement;
+  const KEY   = 'mauro-theme';
+
+  // Minimal Mistakes dark skin adds its own background via CSS.
+  // We override it by injecting a <style> tag that targets the MM classes
+  // directly when data-theme="light" is set on <html>.
+  function injectLightOverrides() {
+    if (document.getElementById('mm-light-overrides')) return;
+    const s = document.createElement('style');
+    s.id = 'mm-light-overrides';
+    s.textContent = `
+      [data-theme="light"] body,
+      [data-theme="light"] .layout--home,
+      [data-theme="light"] .page,
+      [data-theme="light"] .masthead,
+      [data-theme="light"] .masthead__inner-wrap,
+      [data-theme="light"] .greedy-nav,
+      [data-theme="light"] .page__footer,
+      [data-theme="light"] footer.page__footer {
+        background-color: #f5f5f7 !important;
+        color: #1d1d1f !important;
+      }
+      [data-theme="light"] .masthead a,
+      [data-theme="light"] .greedy-nav a,
+      [data-theme="light"] .greedy-nav .visible-links a {
+        color: #1d1d1f !important;
+      }
+      [data-theme="light"] .page__footer {
+        color: #555 !important;
+      }
+      [data-theme="light"] .neural-hero {
+        background-color: #f5f5f7 !important;
+      }
+    `;
+    document.head.appendChild(s);
   }
 
   function applyTheme(theme) {
     html.setAttribute('data-theme', theme);
-    toggleButton.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    toggleButton.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+    btn.innerHTML = theme === 'dark'
+      ? '<i class="fas fa-sun"></i>'
+      : '<i class="fas fa-moon"></i>';
+    btn.setAttribute('aria-label',
+      'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
+    if (theme === 'light') injectLightOverrides();
   }
 
-  function toggleTheme() {
-    const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
-    localStorage.setItem(THEME_KEY, newTheme);
-    toggleButton.classList.add('theme-toggle-active');
-    setTimeout(() => toggleButton.classList.remove('theme-toggle-active'), 300);
+  function getInitial() {
+    const saved = localStorage.getItem(KEY);
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
-  const initial = getSavedTheme();
+  btn.addEventListener('click', function () {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem(KEY, next);
+    btn.classList.add('theme-toggle-active');
+    setTimeout(function () { btn.classList.remove('theme-toggle-active'); }, 300);
+  });
+
+  const initial = getInitial();
   applyTheme(initial);
-  localStorage.setItem(THEME_KEY, initial);
-  toggleButton.addEventListener('click', toggleTheme);
+  localStorage.setItem(KEY, initial);
 
   if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
       const t = e.matches ? 'dark' : 'light';
       applyTheme(t);
-      localStorage.setItem(THEME_KEY, t);
+      localStorage.setItem(KEY, t);
     });
   }
 })();
