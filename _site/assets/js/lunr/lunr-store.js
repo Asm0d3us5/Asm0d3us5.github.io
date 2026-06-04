@@ -22,4 +22,10 @@ var store = [{
         "tags": ["DFIR","Autopsy","Linux"],
         "url": "/projects/usb-forensics/",
         "teaser": null
+      },{
+        "title": "Highly Available WordPress on AWS",
+        "excerpt":"Overview This project was completed as part of SIT233 Cloud Computing at Deakin University. It involved designing, deploying, and testing a highly available WordPress architecture on Amazon Web Services — moving away from a single public EC2 instance toward a multi-layer cloud environment where networking, compute, database, storage, and scaling...","categories": [],
+        "tags": ["AWS","Cloud","DFIR","CloudFormation","IaC","WordPress","RDS","S3","Auto Scaling"],
+        "url": "/projects/wordpress-aws/",
+        "teaser": null
       }]

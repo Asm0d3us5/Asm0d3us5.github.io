@@ -7,16 +7,16 @@
   'use strict';
 
   var CONFIG = {
-    nodeCount: 38,
-    maxDist: 180,
-    nodeMinR: 2,
-    nodeMaxR: 4,
-    speed: 0.28,
+    nodeCount: 55,       // more nodes = denser network across full page
+    maxDist: 200,        // longer connections for wider spread
+    nodeMinR: 1.5,
+    nodeMaxR: 3.5,
+    speed: 0.22,         // slightly slower = more elegant
     colorA: [74, 177, 255],
     colorB: [163, 113, 247],
-    lineAlpha: 0.22,
-    nodeAlpha: 0.85,
-    glowThreshold: 0.7,
+    lineAlpha: 0.18,
+    nodeAlpha: 0.9,
+    glowThreshold: 0.65,
   };
 
   document.addEventListener('DOMContentLoaded', function () {

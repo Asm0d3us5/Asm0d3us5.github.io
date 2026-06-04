@@ -8,23 +8,20 @@ remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 minimal_mistakes_skin: dark
 
-
-
-
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-include-cache  
+  - jekyll-include-cache
 
 author:
   name: Mauro Sunda
   avatar: "/assets/images/profile.jpg"
   bio: "Cybersecurity student passionate about DFIR, CTFs, and security research."
-  location: "Melbourne, Australia"  
-  email: "MauroSunda@protonmail.com"  
-  links:  
+  location: "Melbourne, Australia"
+  email: "MauroSunda@protonmail.com"
+  links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/Asm0d3us5"
@@ -39,7 +36,6 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
-  
 
 defaults:
   - scope:
@@ -48,22 +44,17 @@ defaults:
     values:
       layout: project
 
+# Nav links shown in masthead
+# Minimal Mistakes reads this as the primary navigation
+masthead_title: " "   # keeps the site title out of the masthead bar
+
+# header_pages drives the nav on splash/default layouts
 header_pages:
   - index.md
   - projects.md
   - blog.md
   - about.md
-  
-navigation:
-  - title: Home
-    url: /
-  - title: Projects
-    url: /projects/
-  - title: Blog
-    url: /blog/
-  - title: About
-    url: /about/
-      
+
 footer:
   links:
     - label: "GitHub"
@@ -72,5 +63,5 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/mauro-sunda-29aa02263"
-      
+
 copyright: "© 2026 Mauro Sunda. All rights reserved."

@@ -1,0 +1,418 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Highly Available WordPress on AWS - Mauro Sunda</title>
+<meta name="description" content="Designed and deployed a production-style WordPress architecture on AWS using VPC, EC2 Auto Scaling, RDS MySQL, S3 media offload, ALB, and CloudFormation IaC — tested for high availability and automated recovery.">
+
+
+  <meta name="author" content="Mauro Sunda">
+  
+  <meta property="article:author" content="Mauro Sunda">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="Mauro Sunda">
+<meta property="og:title" content="Highly Available WordPress on AWS">
+<meta property="og:url" content="http://localhost:4000/projects/wordpress-aws/">
+
+
+  <meta property="og:description" content="Designed and deployed a production-style WordPress architecture on AWS using VPC, EC2 Auto Scaling, RDS MySQL, S3 media offload, ALB, and CloudFormation IaC — tested for high availability and automated recovery.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-05-01T00:00:00+10:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/wordpress-aws/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Mauro Sunda Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- Custom CSS for enhanced portfolio design -->
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+<!-- Preload Font Awesome for icons -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  </head>
+
+  <body class="layout--project">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Mauro Sunda
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      <div class="project-wrapper">
+
+  <div class="portfolio-card project-card">
+
+    
+      <img src="/assets/images/wordpress-aws-banner.jpg" alt="Highly Available WordPress on AWS">
+    
+
+    <div class="portfolio-content">
+      <h1>Highly Available WordPress on AWS</h1>
+
+      
+      <div class="portfolio-tags">
+        
+          <span>AWS</span>
+        
+          <span>Cloud</span>
+        
+          <span>DFIR</span>
+        
+          <span>CloudFormation</span>
+        
+          <span>IaC</span>
+        
+          <span>WordPress</span>
+        
+          <span>RDS</span>
+        
+          <span>S3</span>
+        
+          <span>Auto Scaling</span>
+        
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="project-body">
+    <h2 id="overview">Overview</h2>
+
+<p>This project was completed as part of <strong>SIT233 Cloud Computing</strong> at Deakin University. It involved designing, deploying, and testing a highly available WordPress architecture on Amazon Web Services — moving away from a single public EC2 instance toward a multi-layer cloud environment where networking, compute, database, storage, and scaling services work together.</p>
+
+<div class="project-meta-grid">
+  <div class="meta-item"><span class="meta-label">Unit</span><span class="meta-val">SIT233 Cloud Computing</span></div>
+  <div class="meta-item"><span class="meta-label">Institution</span><span class="meta-val">Deakin University</span></div>
+  <div class="meta-item"><span class="meta-label">Trimester</span><span class="meta-val">T1 2025</span></div>
+  <div class="meta-item"><span class="meta-label">Outcome</span><span class="meta-val">High Distinction</span></div>
+</div>
+
+<hr />
+
+<h2 id="architecture">Architecture</h2>
+
+<p>The solution runs inside a custom VPC (<code class="language-plaintext highlighter-rouge">192.168.0.0/16</code>) with four subnets spread across two Availability Zones:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subnet</th>
+      <th>CIDR</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Public Subnet 1</td>
+      <td>192.168.0.0/24</td>
+      <td>NAT Gateway</td>
+    </tr>
+    <tr>
+      <td>Public Subnet 2</td>
+      <td>192.168.1.0/24</td>
+      <td>Application Load Balancer</td>
+    </tr>
+    <tr>
+      <td>Private Subnet 1</td>
+      <td>192.168.2.0/24</td>
+      <td>WordPress EC2 (ASG)</td>
+    </tr>
+    <tr>
+      <td>Private Subnet 2</td>
+      <td>192.168.3.0/24</td>
+      <td>Amazon RDS MySQL</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Traffic flow:</strong> Internet → ALB (public) → WordPress EC2 in private subnet → RDS MySQL (private). Media uploads bypass EC2 entirely via the S3 offload plugin.</p>
+
+<p><strong>Security groups follow least-privilege layering:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ALB-SG</code> — HTTP/80 from <code class="language-plaintext highlighter-rouge">0.0.0.0/0</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Web-Server-SG</code> — HTTP/80 from <code class="language-plaintext highlighter-rouge">ALB-SG</code> only</li>
+  <li><code class="language-plaintext highlighter-rouge">RDS-SG</code> — MySQL/3306 from <code class="language-plaintext highlighter-rouge">Web-Server-SG</code> only</li>
+</ul>
+
+<hr />
+
+<h2 id="implementation">Implementation</h2>
+
+<h3 id="1-network-foundation">1. Network Foundation</h3>
+<p>Custom VPC with Internet Gateway, NAT Gateway in the public subnet, and separate public/private route tables. Private instances reach the internet through the NAT Gateway for package downloads and AWS service calls — without any inbound public exposure.</p>
+
+<h3 id="2-database-layer--amazon-rds-mysql">2. Database Layer — Amazon RDS MySQL</h3>
+<p>RDS deployed inside a private subnet group with public accessibility disabled. A <code class="language-plaintext highlighter-rouge">wordpress</code> database was created manually via the MySQL client after finding the RDS instance identifier was being mistakenly used as the database name.</p>
+
+<h3 id="3-compute-layer--ec2--custom-ami">3. Compute Layer — EC2 + Custom AMI</h3>
+<p>WordPress installed on Amazon Linux 2023 (AL2 unavailable in Learner Lab) using <code class="language-plaintext highlighter-rouge">dnf</code> rather than the <code class="language-plaintext highlighter-rouge">amazon-linux-extras</code> path. After configuring Apache, PHP, and the WP database connection, a custom AMI (<code class="language-plaintext highlighter-rouge">wordpress-configured-ami</code>) was baked from the working instance. This AMI feeds the Launch Template, so all Auto Scaling instances launch pre-configured.</p>
+
+<h3 id="4-storage--amazon-s3-media-offload">4. Storage — Amazon S3 Media Offload</h3>
+<p>Private S3 bucket with Block Public Access and Object Ownership enforced. The WP Offload Media plugin stores all uploads under <code class="language-plaintext highlighter-rouge">wp-content/uploads/</code> in S3 — decoupling media from EC2 instance storage so Auto Scaling replacements don’t lose files. AWS Learner Lab temporary credentials required CLI validation before the plugin auth worked.</p>
+
+<h3 id="5-load-balancing--auto-scaling">5. Load Balancing + Auto Scaling</h3>
+<p>Internet-facing ALB across both public subnets, forwarding HTTP/80 to a target group. Auto Scaling Group config:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Desired capacity</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Minimum</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Maximum</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Scaling policy</td>
+      <td>Target tracking — CPU at 70%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="6-infrastructure-as-code--cloudformation">6. Infrastructure as Code — CloudFormation</h3>
+<p>Two YAML templates:</p>
+<ul>
+  <li><strong>Network stack</strong> — VPC, subnets, IGW, NAT Gateway, route tables. Exports VPC ID, subnet IDs, NAT Gateway ID for cross-stack reference.</li>
+  <li><strong>Application stack</strong> — Security groups, S3 bucket, RDS + read replica, ALB, target group, Launch Template, ASG, and scaling policy. Imports network stack outputs as parameters.</li>
+</ul>
+
+<hr />
+
+<h2 id="testing--validation">Testing &amp; Validation</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RDS connectivity</td>
+      <td>WordPress connected after creating <code class="language-plaintext highlighter-rouge">wordpress</code> DB manually</td>
+    </tr>
+    <tr>
+      <td>S3 media offload</td>
+      <td>Uploads appeared in S3 under <code class="language-plaintext highlighter-rouge">wp-content/uploads/</code></td>
+    </tr>
+    <tr>
+      <td>ALB routing</td>
+      <td>Site accessible via ALB DNS name; target healthy</td>
+    </tr>
+    <tr>
+      <td>Auto Scaling recovery</td>
+      <td>Terminated instance replaced automatically; site remained up</td>
+    </tr>
+    <tr>
+      <td>Scaling policy</td>
+      <td>Target tracking policy active; scale-in enabled</td>
+    </tr>
+    <tr>
+      <td>CloudFormation</td>
+      <td>Network stack deployed cleanly; app stack reached <code class="language-plaintext highlighter-rouge">CREATE_COMPLETE</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="challenges--lessons-learned">Challenges &amp; Lessons Learned</h2>
+
+<ul>
+  <li><strong>Amazon Linux 2 unavailable</strong> in Learner Lab — switched to AL2023, rewrote install steps using <code class="language-plaintext highlighter-rouge">dnf</code> instead of <code class="language-plaintext highlighter-rouge">amazon-linux-extras</code></li>
+  <li><strong>RDS naming confusion</strong> — instance identifier ≠ database name; resolved by creating the <code class="language-plaintext highlighter-rouge">wordpress</code> DB manually via MySQL client</li>
+  <li><strong>Learner Lab temporary credentials</strong> — caused S3 plugin auth failures; validated S3 access via AWS CLI before debugging the plugin config</li>
+  <li><strong>CloudFormation portability</strong> — hardcoded MySQL engine versions and IAM instance profile names broke in a fresh lab environment; templates should use parameters</li>
+</ul>
+
+<hr />
+
+<h2 id="possible-improvements">Possible Improvements</h2>
+
+<ul>
+  <li><strong>HTTPS</strong> via AWS Certificate Manager + Route 53 custom domain</li>
+  <li><strong>CloudFront</strong> in front of ALB and S3 for global CDN performance</li>
+  <li><strong>AWS Secrets Manager</strong> for database credentials instead of manual entry</li>
+  <li><strong>S3 VPC Gateway Endpoint</strong> to reduce NAT Gateway costs for S3 traffic</li>
+  <li><strong>AWS WAF</strong> + CloudWatch alarms + centralised logging for production hardening</li>
+</ul>
+
+<hr />
+
+<h2 id="tech-stack">Tech Stack</h2>
+
+<div class="skills-grid" style="margin: 1rem 0;">
+  <span class="skill-tag skill-net">Amazon VPC</span>
+  <span class="skill-tag skill-net">Application Load Balancer</span>
+  <span class="skill-tag skill-net">NAT Gateway</span>
+  <span class="skill-tag skill-dfir">Amazon EC2</span>
+  <span class="skill-tag skill-dfir">Auto Scaling Group</span>
+  <span class="skill-tag skill-dfir">Custom AMI</span>
+  <span class="skill-tag skill-siem">Amazon RDS MySQL</span>
+  <span class="skill-tag skill-siem">Amazon S3</span>
+  <span class="skill-tag skill-lang">CloudFormation (YAML)</span>
+  <span class="skill-tag skill-lang">Amazon Linux 2023</span>
+  <span class="skill-tag skill-lang">Apache / PHP</span>
+</div>
+
+<hr />
+
+<h2 id="presentation--demo">Presentation &amp; Demo</h2>
+
+<ul>
+  <li><a href="https://deakin.au.panopto.com/Panopto/Pages/Viewer.aspx?id=92f0f8b2-eb12-4f32-b31f-b451007b8f56">Presentation Video</a></li>
+  <li><a href="https://deakin.au.panopto.com/Panopto/Pages/Viewer.aspx?id=e58753c4-afcf-44e0-885f-b451007355d4">WordPress on AWS Demo</a></li>
+  <li><a href="https://deakin.au.panopto.com/Panopto/Pages/Viewer.aspx?id=16dde6fe-1638-4dea-aaa0-b4510075ee0e">CloudFormation Demo</a></li>
+</ul>
+
+  </div>
+
+</div>
+
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer">
+  <div style="text-align:center; padding: 1em; font-size: 0.9em;">
+    © 2026 Mauro Sunda · Cybersecurity Portfolio  
+    <br>
+    <a href="https://github.com/Asm0d3us5">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/mauro-sunda-29aa02263">LinkedIn</a>
+  </div>
+</footer>
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
