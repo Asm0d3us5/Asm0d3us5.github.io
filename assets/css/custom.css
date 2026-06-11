@@ -354,6 +354,17 @@ body {
   border: 1px solid rgba(111, 66, 193, 0.3);
 }
 
+.difficulty-intermediate {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+[data-theme="dark"] .difficulty-intermediate {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffd93d;
+}
+
 /* Dark Mode: Brighter colors for better visibility */
 [data-theme="dark"] .difficulty-easy {
   background: rgba(40, 167, 69, 0.2);

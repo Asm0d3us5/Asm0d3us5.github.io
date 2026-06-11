@@ -17,13 +17,13 @@ layout: default
       <div class="portfolio-tags">
         {% for tag in page.tags %}
           {% assign tl = tag | downcase %}
-          {% if tl == "dfir" or tl == "forensics" %}
+          {% if tl == "dfir" or tl == "forensics" or tl == "autopsy" or tl == "ftk" or tl == "foremost" or tl == "binwalk" or tl == "volatility" %}
             <span class="skill-tag skill-dfir">{{ tag }}</span>
-          {% elsif tl == "aws" or tl == "network" or tl == "cloud" or tl == "ctf" or tl == "rds" or tl == "s3" or tl == "auto scaling" %}
+          {% elsif tl == "aws" or tl == "network" or tl == "cloud" or tl == "ctf" or tl == "rds" or tl == "s3" or tl == "auto scaling" or tl == "linux" or tl == "kali" %}
             <span class="skill-tag skill-net">{{ tag }}</span>
-          {% elsif tl == "iac" or tl == "cloudformation" or tl == "elk" or tl == "siem" or tl == "wordpress" %}
+          {% elsif tl == "iac" or tl == "cloudformation" or tl == "elk" or tl == "siem" or tl == "wordpress" or tl == "sha256" or tl == "john the ripper" %}
             <span class="skill-tag skill-siem">{{ tag }}</span>
-          {% elsif tl == "python" or tl == "bash" or tl == "linux" %}
+          {% elsif tl == "python" or tl == "bash" or tl == "dcfldd" or tl == "office2john" %}
             <span class="skill-tag skill-lang">{{ tag }}</span>
           {% else %}
             <span class="skill-tag skill-net">{{ tag }}</span>

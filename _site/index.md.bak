@@ -111,10 +111,12 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          Mauro Sunda
+           
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li><li class="masthead__menu-item">
               <a href="/projects/">Projects</a>
             </li><li class="masthead__menu-item">
               <a href="/blog/">Blog</a>
@@ -235,23 +237,27 @@
   <div class="portfolio-card">
     <a href="/projects/usb-forensics/">
       
-        <img src="/assets/images/usb.jpg" alt="USB Forensics Investigation">
+        <img src="/assets/images/projects/usb-forensics-banner.jpg" alt="Investigating Computer Fraud — USB Forensics">
       
       <div class="portfolio-content">
-        <h3>USB Forensics Investigation</h3>
+        <h3>Investigating Computer Fraud — USB Forensics</h3>
+        
+        <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
         
         
-        <p>Overview
-This project investigates a USB drive related to a computer fraud case, 
-focusing on identifying r...</p>
+        <span class="platform-badge">Deakin SIT282</span>
+        
+        <p>End-to-end digital forensics investigation of a USB drive in a simulated computer fraud case — forensic ima...</p>
         
         <div class="portfolio-tags">
           
             <span>DFIR</span>
           
+            <span>Forensics</span>
+          
             <span>Autopsy</span>
           
-            <span>Linux</span>
+            <span>FTK</span>
           
         </div>
         

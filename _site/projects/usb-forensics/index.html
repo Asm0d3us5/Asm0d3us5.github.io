@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>USB Forensics Investigation - Mauro Sunda</title>
-<meta name="description" content="Overview This project investigates a USB drive related to a computer fraud case,  focusing on identifying relevant artifacts,  recovering deleted files,  and validating digital evidence using forensic techniques.">
+<!-- begin _includes/seo.html --><title>Investigating Computer Fraud — USB Forensics - Mauro Sunda</title>
+<meta name="description" content="End-to-end digital forensics investigation of a USB drive in a simulated computer fraud case — forensic imaging, deleted file recovery, hidden data analysis, password cracking, and hash-based integrity validation.">
 
 
   <meta name="author" content="Mauro Sunda">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_AU">
 <meta property="og:site_name" content="Mauro Sunda">
-<meta property="og:title" content="USB Forensics Investigation">
+<meta property="og:title" content="Investigating Computer Fraud — USB Forensics">
 <meta property="og:url" content="http://localhost:4000/projects/usb-forensics/">
 
 
-  <meta property="og:description" content="Overview This project investigates a USB drive related to a computer fraud case,  focusing on identifying relevant artifacts,  recovering deleted files,  and validating digital evidence using forensic techniques.">
+  <meta property="og:description" content="End-to-end digital forensics investigation of a USB drive in a simulated computer fraud case — forensic imaging, deleted file recovery, hidden data analysis, password cracking, and hash-based integrity validation.">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2026-06-04T17:11:06+10:00">
+  <meta property="article:published_time" content="2025-03-26T00:00:00+10:00">
 
 
 
@@ -113,10 +113,12 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          Mauro Sunda
+           
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li><li class="masthead__menu-item">
               <a href="/projects/">Projects</a>
             </li><li class="masthead__menu-item">
               <a href="/blog/">Blog</a>
@@ -141,11 +143,11 @@
   <div class="portfolio-card project-card">
 
     
-      <img src="/assets/images/usb.jpg" alt="USB Forensics Investigation">
+      <img src="/assets/images/projects/usb-forensics-banner.jpg" alt="Investigating Computer Fraud — USB Forensics">
     
 
     <div class="portfolio-content">
-      <h1>USB Forensics Investigation</h1>
+      <h1>Investigating Computer Fraud — USB Forensics</h1>
 
       
       <div class="portfolio-tags">
@@ -157,41 +159,338 @@
         
           
           
-            <span class="skill-tag skill-net">Autopsy</span>
+            <span class="skill-tag skill-dfir">Forensics</span>
           
         
           
           
-            <span class="skill-tag skill-lang">Linux</span>
+            <span class="skill-tag skill-dfir">Autopsy</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-dfir">FTK</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">Linux</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-lang">Python</span>
           
         
       </div>
       
 
       
+      <div style="margin-top: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+        <span class="platform-badge">Deakin SIT282</span>
+      </div>
+      
     </div>
   </div>
 
   <div class="project-body">
     <h2 id="overview">Overview</h2>
-<p>This project investigates a USB drive related to a computer fraud case, 
-focusing on identifying relevant artifacts, 
-recovering deleted files, 
-and validating digital evidence using forensic techniques.</p>
 
-<h2 id="tools-used">Tools Used</h2>
+<p>This project was completed as part of <strong>SIT282 Computer Forensics and Investigations</strong> at Deakin University. It simulates a real-world computer fraud investigation involving a USB drive — covering the full forensic workflow from evidence acquisition through to data validation and password recovery.</p>
+
+<div class="project-meta-grid">
+  <div class="meta-item"><span class="meta-label">Unit</span><span class="meta-val"> Computer Forensics</span></div>
+  <div class="meta-item"><span class="meta-label">Institution</span><span class="meta-val">Deakin University</span></div>
+  <div class="meta-item"><span class="meta-label">Date</span><span class="meta-val">March 2025</span></div>
+</div>
+
+<hr />
+
+<h2 id="step-1--data-preparation">Step 1 — Data Preparation</h2>
+
+<p>To simulate a real fraud scenario, two files were created on a USB drive — one Word document (<code class="language-plaintext highlighter-rouge">223756188.docx</code>) and one Excel spreadsheet (<code class="language-plaintext highlighter-rouge">StudentID</code>) — alongside a photo (<code class="language-plaintext highlighter-rouge">StudentID.jpg</code>).</p>
+
+<p>The following modifications were made to introduce forensic artefacts:</p>
+
 <ul>
-  <li>Autopsy</li>
-  <li>Foremost</li>
-  <li>FTK Imager</li>
+  <li><strong>Extension spoofing</strong> — the Excel file’s extension was manually changed to disguise its true file type</li>
+  <li><strong>Password protection</strong> — the Word document was encrypted with a password</li>
+  <li><strong>Photo added</strong> — an image (<code class="language-plaintext highlighter-rouge">photo.jpg</code>) was placed on the drive</li>
 </ul>
 
-<h2 id="what-i-learned">What I Learned</h2>
+<p>All files were then <strong>deleted</strong> from the USB, simulating an attempt to destroy evidence.</p>
+
+<hr />
+
+<h2 id="step-2--forensic-data-acquisition">Step 2 — Forensic Data Acquisition</h2>
+
+<p>Two independent imaging methods were used to create bit-for-bit copies of the USB drive before any analysis.</p>
+
+<h3 id="dcfldd-linux">DCFLDD (Linux)</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dcfldd <span class="k">if</span><span class="o">=</span>/dev/sdb <span class="nv">of</span><span class="o">=</span>/mnt/data/usb_image.dd <span class="se">\</span>
+  <span class="nv">bs</span><span class="o">=</span>4M <span class="nb">hash</span><span class="o">=</span>sha256 <span class="se">\</span>
+  <span class="nv">hashlog</span><span class="o">=</span>/mnt/data/usb_hash.txt <span class="se">\</span>
+  <span class="nv">status</span><span class="o">=</span>on
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">if=/dev/sdb</code></td>
+      <td>Input source — the USB device</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">of=usb_image.dd</code></td>
+      <td>Output raw DD image</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bs=4M</code></td>
+      <td>Read in 4 MB chunks for efficiency</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hash=sha256</code></td>
+      <td>Calculate SHA-256 during copy</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hashlog=usb_hash.txt</code></td>
+      <td>Log hash for later verification</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status=on</code></td>
+      <td>Display live progress</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ftk-imager-windows">FTK Imager (Windows)</h3>
+
+<ol>
+  <li>Connected USB to forensic workstation</li>
+  <li>Opened FTK Imager → <strong>File → Create Disk Image</strong></li>
+  <li>Selected <strong>Physical Drive</strong> → chose the USB</li>
+  <li>Set image format to <strong>E01</strong> (Expert Witness Format)</li>
+  <li>Set fragmentation to <code class="language-plaintext highlighter-rouge">0</code> and compression to <code class="language-plaintext highlighter-rouge">0</code> — exact copy</li>
+  <li>Saved <code class="language-plaintext highlighter-rouge">USB_IMAGE.E01</code></li>
+</ol>
+
+<p>FTK Imager automatically generated <strong>MD5 and SHA1 checksums</strong> during acquisition:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MD5:  61a27de3f47767db0eee468462ddac84
+SHA1: 55c8f167b0bc348e80e4bd0ad0b34a36f252c2f3
+Verify result: Match ✓
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="step-3--data-recovery">Step 3 — Data Recovery</h2>
+
+<p>With all files deleted from the USB, two forensic recovery methods were used.</p>
+
+<h3 id="autopsy">Autopsy</h3>
+
+<ol>
+  <li>Created a new case in Autopsy</li>
+  <li>Added the <code class="language-plaintext highlighter-rouge">USB_IMAGE.E01</code> as the data source</li>
+  <li>Navigated to <strong>File Views → Deleted Files</strong></li>
+  <li>Recovered: <code class="language-plaintext highlighter-rouge">223756188.docx</code>, <code class="language-plaintext highlighter-rouge">PhotoN1.png</code>, <code class="language-plaintext highlighter-rouge">StudentID.jpg</code></li>
+  <li>Exported recovered files to a local folder</li>
+</ol>
+
+<h3 id="foremost-linux">Foremost (Linux)</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foremost <span class="nt">-t</span> jpg,png <span class="nt">-i</span> USB_IMAGE.E01 <span class="nt">-o</span> /home/user/Recover_images/
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-t jpg,png</code></td>
+      <td>Target file types to carve</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-i USB_IMAGE.E01</code></td>
+      <td>Input forensic image</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-o Recover_images/</code></td>
+      <td>Output directory for recovered files</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Foremost recovered files by their file signatures (magic bytes) rather than filesystem metadata — effective even when directory entries are overwritten.</p>
+
+<h3 id="verifying-changed-file-extensions">Verifying Changed File Extensions</h3>
+
+<p>The Excel file had its extension manually changed. Two methods identified the true file type:</p>
+
+<p><strong>Autopsy</strong> — navigated to <strong>Analysis Results → Extension Mismatch Detected (52)</strong>, which flagged <code class="language-plaintext highlighter-rouge">StudentID.jpg</code> as an Excel spreadsheet (<code class="language-plaintext highlighter-rouge">application/vnd.openxmlformats-officedocument.spreadsheetml</code>).</p>
+
+<p><strong>Linux <code class="language-plaintext highlighter-rouge">file</code> command:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file <span class="nt">-i</span> Recover_images/<span class="k">*</span>
+</code></pre></div></div>
+<p>Output confirmed <code class="language-plaintext highlighter-rouge">StudentID.jpg</code> was actually a spreadsheet — true file type regardless of extension.</p>
+
+<hr />
+
+<h2 id="step-4--data-analysis">Step 4 — Data Analysis</h2>
+
+<h3 id="hidden-data--autopsy">Hidden Data — Autopsy</h3>
+
+<p>Used <strong>File Analysis → File Types</strong> to scan for anomalies across 1,373 images, 3 videos, 58 audio files, 1 archive, and 3 database files. The keyword search module was used to identify patterns suggesting concealed data.</p>
+
+<h3 id="hidden-data--binwalk-kali-linux">Hidden Data — Binwalk (Kali Linux)</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>binwalk <span class="nt">-e</span> PhotoN1.png
+binwalk <span class="nt">-e</span> StudentID.jpg
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">StudentID.jpg</code> revealed embedded ZIP archive data containing multiple XML files — consistent with an Office Open XML document embedded inside a JPEG. <code class="language-plaintext highlighter-rouge">PhotoN1.png</code> showed compressed data at offset <code class="language-plaintext highlighter-rouge">0x4B</code>.</p>
+
+<h3 id="password-recovery--john-the-ripper">Password Recovery — John the Ripper</h3>
+
+<p>The Word document was password-protected. Recovery process:</p>
+
+<p><strong>Step 1 — Extract hash:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./office2john.py /home/kali/Desktop/USB_files/223756188.docx <span class="o">&gt;</span> hash.txt
+</code></pre></div></div>
+
+<p><strong>Step 2 — Crack with mask attack:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>john <span class="nt">--mask</span><span class="o">=</span>S223756188?d hash.txt
+</code></pre></div></div>
+
+<p>The mask <code class="language-plaintext highlighter-rouge">S223756188?d</code> constrained the search to the known student ID prefix followed by digits — targeting the likely password structure. John the Ripper successfully cracked the password.</p>
+
+<p><strong>Recovery techniques compared:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>How it works</th>
+      <th>Best for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Brute force</td>
+      <td>Tries every character combination</td>
+      <td>Short/simple passwords</td>
+    </tr>
+    <tr>
+      <td>Dictionary attack</td>
+      <td>Wordlist of common passwords</td>
+      <td>Common or reused passwords</td>
+    </tr>
+    <tr>
+      <td>Hash cracking + mask</td>
+      <td>Extracts hash, applies structural constraints</td>
+      <td>Known password patterns</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="step-5--data-validation">Step 5 — Data Validation</h2>
+
+<p>Hash validation confirms the forensic image is an exact, unaltered copy of the original drive — critical for chain of custody and court admissibility.</p>
+
+<p><strong>FTK Imager</strong> generated checksums automatically at acquisition time:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Computed Hashes]
+MD5:  61a27de3f47767db0eee468462ddac84 : verified ✓
+SHA1: 55c8f167b0bc348e80e4bd0ad0b34a36f252c2f3 : verified ✓
+</code></pre></div></div>
+
+<p><strong>DCFLDD + sha256sum</strong> method:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Generate hash of the raw image</span>
+<span class="nb">sudo sha256sum </span>usb_image.dd
+
+<span class="c"># Compare with hash logged during acquisition</span>
+<span class="nb">cat </span>usb_hash.txt
+</code></pre></div></div>
+
+<p>Both hashes matched — confirming no data was modified between acquisition and analysis.</p>
+
+<hr />
+
+<h2 id="key-findings">Key Findings</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artefact</th>
+      <th>Finding</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Deleted files</td>
+      <td>3 files recovered — <code class="language-plaintext highlighter-rouge">223756188.docx</code>, <code class="language-plaintext highlighter-rouge">PhotoN1.png</code>, <code class="language-plaintext highlighter-rouge">StudentID.jpg</code></td>
+    </tr>
+    <tr>
+      <td>Extension spoofing</td>
+      <td><code class="language-plaintext highlighter-rouge">StudentID.jpg</code> was an Excel spreadsheet (confirmed by <code class="language-plaintext highlighter-rouge">file</code> command and Autopsy)</td>
+    </tr>
+    <tr>
+      <td>Hidden data</td>
+      <td>Embedded ZIP/XML archive found inside <code class="language-plaintext highlighter-rouge">StudentID.jpg</code> via Binwalk</td>
+    </tr>
+    <tr>
+      <td>Password-protected doc</td>
+      <td>Password cracked using <code class="language-plaintext highlighter-rouge">office2john</code> + John the Ripper mask attack</td>
+    </tr>
+    <tr>
+      <td>Image integrity</td>
+      <td>MD5 and SHA1 verified — forensic image matches original</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="lessons-learned">Lessons Learned</h2>
+
 <ul>
-  <li>File recovery techniques and carving deleted data from storage media</li>
-  <li>Metadata analysis to establish timelines and understand file activity</li>
-  <li>Evidence validation using cryptographic hashes (MD5/SHA-256) to ensure data integrity and maintain forensic soundness</li>
+  <li><strong>Never trust file extensions</strong> — magic bytes and MIME type analysis are the reliable sources of truth</li>
+  <li><strong>Dual-tool acquisition</strong> matters — DCFLDD and FTK Imager cross-validated each other’s hashes</li>
+  <li><strong>Mask attacks are highly effective</strong> when a password structure is known (student IDs are predictable patterns)</li>
+  <li><strong>Autopsy’s Extension Mismatch module</strong> is underrated — surfaced the spoofed file immediately without manual inspection</li>
+  <li><strong>Binwalk is non-obvious</strong> — its ability to find embedded archives inside images is extremely useful in fraud cases</li>
 </ul>
+
+<hr />
+
+<h2 id="tech-stack">Tech Stack</h2>
+
+<div class="skills-grid" style="margin: 1rem 0;">
+  <span class="skill-tag skill-dfir">Autopsy</span>
+  <span class="skill-tag skill-dfir">FTK Imager</span>
+  <span class="skill-tag skill-dfir">Foremost</span>
+  <span class="skill-tag skill-dfir">Binwalk</span>
+  <span class="skill-tag skill-net">Wireshark</span>
+  <span class="skill-tag skill-lang">DCFLDD</span>
+  <span class="skill-tag skill-lang">John the Ripper</span>
+  <span class="skill-tag skill-lang">office2john</span>
+  <span class="skill-tag skill-siem">SHA256 / MD5</span>
+  <span class="skill-tag skill-net">Kali Linux</span>
+</div>
 
   </div>
 
