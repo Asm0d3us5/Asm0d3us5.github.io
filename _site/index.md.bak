@@ -296,6 +296,35 @@
     </a>
   </div>
 
+  <div class="portfolio-card">
+    <a href="/projects/soc-phishing-lab/">
+      
+        <img src="/assets/images/default-project.png" alt="SOC Phishing Analysis Lab">
+      
+      <div class="portfolio-content">
+        <h3>SOC Phishing Analysis Lab</h3>
+        
+        <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+        
+        
+        <p>Self-contained SOC environment for end-to-end phishing email analysis using free and open-source tools — em...</p>
+        
+        <div class="portfolio-tags">
+          
+            <span>DFIR</span>
+          
+            <span>SOC</span>
+          
+            <span>Phishing</span>
+          
+            <span>Docker</span>
+          
+        </div>
+        
+      </div>
+    </a>
+  </div>
+
 </div>
 
 <div class="section-cta">

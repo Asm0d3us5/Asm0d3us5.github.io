@@ -1,0 +1,623 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>SOC Phishing Analysis Lab - Mauro Sunda</title>
+<meta name="description" content="Self-contained SOC environment for end-to-end phishing email analysis using free and open-source tools — eml_analyzer, VirusTotal, URLScan, AbuseIPDB, sandboxing, and a custom Python IOC report generator.">
+
+
+  <meta name="author" content="Mauro Sunda">
+  
+  <meta property="article:author" content="Mauro Sunda">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="Mauro Sunda">
+<meta property="og:title" content="SOC Phishing Analysis Lab">
+<meta property="og:url" content="http://localhost:4000/projects/soc-phishing-lab/">
+
+
+  <meta property="og:description" content="Self-contained SOC environment for end-to-end phishing email analysis using free and open-source tools — eml_analyzer, VirusTotal, URLScan, AbuseIPDB, sandboxing, and a custom Python IOC report generator.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/projects/soc-phishing-lab-banner.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2026-06-13T00:00:00+10:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/soc-phishing-lab/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Mauro Sunda Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- Custom CSS for enhanced portfolio design -->
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+<!-- Preload Font Awesome for icons -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  </head>
+
+  <body class="layout--project">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      <div class="project-wrapper">
+
+  <div class="portfolio-card project-card">
+
+    
+
+    <div class="portfolio-content">
+      <h1>SOC Phishing Analysis Lab</h1>
+
+      
+      <div class="portfolio-tags">
+        
+          
+          
+            <span class="skill-tag skill-dfir">DFIR</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">SOC</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">Phishing</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">Docker</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-lang">Python</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">Threat Intel</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">MITRE ATT&CK</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">Email Forensics</span>
+          
+        
+      </div>
+      
+
+      
+      <div style="margin-top: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+        
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="project-body">
+    <p>DFIR SOC Phishing Docker Python Threat Intel MITRE ATT&amp;CK</p>
+
+<p>Intermediate Personal Lab</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>A self-contained Security Operations Centre (SOC) lab built on Ubuntu in VirtualBox, designed to analyse real phishing emails end-to-end using exclusively free and open-source tools. The lab covers every phase of a real analyst workflow — from receiving a suspicious email through to delivering a structured IOC report ready for escalation.</p>
+
+<p>A dedicated Outlook honeypot inbox was used to collect live phishing and spam samples, which were then triaged, investigated, and documented using the full tool stack below.</p>
+
+<p>Unit Personal Project</p>
+
+<p>PlatformUbuntu 24.04 · VirtualBox · Docker</p>
+
+<p>Date2026</p>
+
+<hr />
+
+<h2 id="objectives">Objectives</h2>
+
+<ul>
+  <li>Build a production-style phishing analysis workflow using only free tools</li>
+  <li>Develop hands-on proficiency with email header forensics, URL investigation, and payload sandboxing</li>
+  <li>Automate IOC report generation with a custom Python CLI tool</li>
+  <li>Analyse real phishing samples collected from a live honeypot inbox</li>
+  <li>Map findings to MITRE ATT&amp;CK TTPs</li>
+</ul>
+
+<hr />
+
+<h2 id="lab-architecture">Lab Architecture</h2>
+
+<p>The full lab runs inside a VirtualBox VM with Docker providing the eml_analyzer web interface. Network isolation ensures no malicious content can reach the host machine.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host Machine (Windows/macOS)
+└── VirtualBox VM (Ubuntu 24.04)
+    ├── Docker
+    │   ├── eml_analyzer      → localhost:8000
+    │   ├── Redis              → internal only
+    │   └── SpamAssassin       → internal only
+    ├── ioc_report_generator.py
+    └── Outlook honeypot inbox (browser)
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="analysis-workflow">Analysis Workflow</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Action</th>
+      <th>Primary Tool</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01 — Triage</td>
+      <td>Receive email, save as .eml, open in eml_analyzer</td>
+      <td>eml_analyzer</td>
+    </tr>
+    <tr>
+      <td>02 — Headers</td>
+      <td>Validate SPF/DKIM/DMARC, trace relay hops</td>
+      <td>MxToolbox</td>
+    </tr>
+    <tr>
+      <td>03 — URLs / IPs</td>
+      <td>Safe URL detonation, IP reputation scoring</td>
+      <td>URLScan.io · AbuseIPDB</td>
+    </tr>
+    <tr>
+      <td>04 — Payload</td>
+      <td>File hash lookup, sandbox detonation, MITRE mapping</td>
+      <td>Any.Run · Hybrid Analysis</td>
+    </tr>
+    <tr>
+      <td>05 — Report</td>
+      <td>Generate structured IOC report, document actions taken</td>
+      <td>Python CLI tool</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="tool-stack">Tool Stack</h2>
+
+<p><strong>eml_analyzer (ninoseki) — Self-hosted via Docker</strong>
+The primary .eml parsing engine. Runs at <code class="language-plaintext highlighter-rouge">localhost:8000</code> inside the VM — parses email files and automatically extracts headers, URLs, IPs, domains, attachment hashes, OLE macro indicators, and SpamAssassin spam scores. Chosen over cloud-based alternatives because nothing leaves the machine.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/ninoseki/eml_analyzer.git
+<span class="nb">cd </span>eml_analyzer
+docker compose up <span class="nt">-d</span>
+<span class="c"># Available at http://localhost:8000</span>
+</code></pre></div></div>
+
+<p><strong>MxToolbox</strong> — SPF, DKIM, DMARC validation and blacklist checks. First stop for every header analysis.</p>
+
+<p><strong>Google Admin Toolbox</strong> — Visualises email routing hops and delivery timestamps to identify spoofed relay chains.</p>
+
+<p><strong>VirusTotal</strong> — 70+ AV engines for URL, domain, IP, and file hash reputation across all investigations.</p>
+
+<p><strong>URLScan.io</strong> — Safe URL detonation without exposing the analyst. Captures full page screenshots, redirect chains, and DOM snapshots.</p>
+
+<p><strong>Any.Run</strong> — Interactive sandbox for live file detonation with real-time process tree and network connection visibility.</p>
+
+<p><strong>Hybrid Analysis</strong> — CrowdStrike Falcon-powered deep analysis with automatic MITRE ATT&amp;CK TTP mapping.</p>
+
+<p><strong>AbuseIPDB</strong> — Community-driven IP reputation database. Cross-referenced against every sender and C2 IP found in samples.</p>
+
+<p><strong>Shodan</strong> — Infrastructure pivoting to identify attacker hosting, open services, and SSL cert reuse across campaigns.</p>
+
+<p><strong>CyberChef</strong> — In-browser decoding for Base64 email bodies, obfuscated URLs, and IOC defanging.</p>
+
+<hr />
+
+<h2 id="ioc-report-generator">IOC Report Generator</h2>
+
+<p>A custom Python CLI tool that walks through every investigation field interactively and outputs a structured <code class="language-plaintext highlighter-rouge">.txt</code> report.</p>
+
+<p><strong>Key features:</strong></p>
+<ul>
+  <li>Auto-increments Case IDs (<code class="language-plaintext highlighter-rouge">PHI-2026-0001</code>, <code class="language-plaintext highlighter-rouge">PHI-2026-0002</code>…) by scanning existing reports in the working directory</li>
+  <li>Auto-defangs all URLs and domains on input (<code class="language-plaintext highlighter-rouge">https://evil.com</code> → <code class="language-plaintext highlighter-rouge">hxxps://evil[.]com</code>)</li>
+  <li>Accepts multiple values for URLs, IPs, domains, and filenames — each listed on its own indented line</li>
+  <li>Interactive severity picker (LOW / MEDIUM / HIGH / CRITICAL)</li>
+  <li>MITRE ATT&amp;CK TTP field with default suggestion</li>
+  <li>Actions-taken checklist with y/n prompts</li>
+  <li>Zero external dependencies — standard library only</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 ioc_report_generator.py
+</code></pre></div></div>
+
+<p><strong>Sample output structure:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>========================================
+PHISHING EMAIL ANALYSIS REPORT
+========================================
+CASE_ID       : PHI-2026-0001
+ANALYST       : Mauro Sunda
+DATE          : 2026-02-16 10:24 UTC
+SEVERITY      : MEDIUM
+
+-- EMAIL METADATA --
+Subject       : Aviso final: Límite de capacidad excedido 💾
+From (address): NO-REPLY@SWEFVLB
+Reply-To      : reply_to@SwEfvlB
+
+-- AUTHENTICATION --
+SPF           : NONE
+DKIM          : NONE
+DMARC         : NONE
+Originating IP: 20.215.67.24
+
+-- INDICATORS OF COMPROMISE --
+URLs          :
+                (none identified in headers)
+Domains       :
+                eleganteviaggio[.]it
+                SwEfvlB[.]com
+IPs           :
+                20.215.67.24
+
+-- ANALYSIS SUMMARY --
+Attack Type   : Credential Harvest
+Technique     : Urgency
+MITRE ATT&amp;CK  : T1566.002 - Spearphishing Link
+
+-- ACTIONS TAKEN --
+[X] Block sender domain at email gateway
+[X] Submit IOCs to threat intel platform
+[ ] Escalate to IR team (malware confirmed)
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="live-sample-analysis--phi-2026-0001">Live Sample Analysis — PHI-2026-0001</h2>
+
+<p>A real phishing email collected from the Outlook honeypot inbox, fully investigated using the lab workflow.</p>
+
+<p><strong>Email overview:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Subject</td>
+      <td>“Aviso final: Límite de capacidad excedido 💾 nH6xa”</td>
+    </tr>
+    <tr>
+      <td>Language</td>
+      <td>Spanish — regional targeting</td>
+    </tr>
+    <tr>
+      <td>Lure</td>
+      <td>Storage limit exceeded — urgency trigger</td>
+    </tr>
+    <tr>
+      <td>Received</td>
+      <td>2026-02-16 10:24 UTC</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Authentication findings:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Check</th>
+      <th>Result</th>
+      <th>Significance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SPF</td>
+      <td>NONE</td>
+      <td>Sending domain has no SPF record</td>
+    </tr>
+    <tr>
+      <td>DKIM</td>
+      <td>NONE</td>
+      <td>Email not cryptographically signed</td>
+    </tr>
+    <tr>
+      <td>DMARC</td>
+      <td>NONE</td>
+      <td>No policy on sender domain</td>
+    </tr>
+    <tr>
+      <td>MS SCL Score</td>
+      <td>9/9</td>
+      <td>Microsoft flagged as maximum-confidence spam</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Infrastructure analysis:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>IOC</th>
+      <th>Value</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Originating IP</td>
+      <td><code class="language-plaintext highlighter-rouge">20.215.67.24</code></td>
+      <td>Microsoft Azure — cloud abuse to bypass IP blacklists</td>
+    </tr>
+    <tr>
+      <td>Sending domain</td>
+      <td><code class="language-plaintext highlighter-rouge">9bxp.eleganteviaggio.it</code></td>
+      <td>Compromised legitimate Italian travel site used as relay</td>
+    </tr>
+    <tr>
+      <td>Reply-To</td>
+      <td><code class="language-plaintext highlighter-rouge">reply_to@SwEfvlB</code></td>
+      <td>Fake domain — complete mismatch with sender</td>
+    </tr>
+    <tr>
+      <td>Return-Path</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;&gt;</code> (empty)</td>
+      <td>Deliberately suppressed to hinder tracking</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Key findings:</strong></p>
+
+<p>All three email authentication mechanisms failed — no SPF record, no DKIM signature, no DMARC policy. The attacker routed the email through a compromised Italian travel website (<code class="language-plaintext highlighter-rouge">eleganteviaggio.it</code>) hosted on Microsoft Azure infrastructure, a common tactic to abuse the trusted reputation of cloud IP ranges and bypass basic blacklists.</p>
+
+<p>The Reply-To address (<code class="language-plaintext highlighter-rouge">reply_to@SwEfvlB</code>) uses a completely fabricated domain with no relationship to the sender, indicating the attacker wanted replies routed to a separate collection point. The Spanish-language subject line suggests a targeted regional campaign using a storage-limit urgency lure to prompt credential submission.</p>
+
+<p><strong>MITRE ATT&amp;CK mapping:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Technique</th>
+      <th>ID</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Phishing</td>
+      <td>T1566.002</td>
+      <td>Spearphishing Link — credential harvest via urgency lure</td>
+    </tr>
+    <tr>
+      <td>Compromise Infrastructure</td>
+      <td>T1584</td>
+      <td>Compromised legitimate domain used as relay</td>
+    </tr>
+    <tr>
+      <td>Obfuscate Infrastructure</td>
+      <td>T1665</td>
+      <td>Cloud IP abuse to evade reputation checks</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="setup-challenges--solutions">Setup Challenges &amp; Solutions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Challenge</th>
+      <th>Root Cause</th>
+      <th>Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VirtualBox clipboard not working</td>
+      <td>Guest Additions not installed</td>
+      <td>Installed via ISO after adding <code class="language-plaintext highlighter-rouge">build-essential</code>, <code class="language-plaintext highlighter-rouge">dkms</code>, <code class="language-plaintext highlighter-rouge">linux-headers</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker-compose</code> permission denied</td>
+      <td>User not in docker group</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo usermod -aG docker $USER</code> + <code class="language-plaintext highlighter-rouge">newgrp docker</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">group 'docker' does not exist</code></td>
+      <td>Partial Docker install</td>
+      <td>Full reinstall via official Docker CE apt repository</td>
+    </tr>
+    <tr>
+      <td>Port 6379 / 8000 / 783 conflicts</td>
+      <td>Leftover docker-proxy from previous failed run</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo systemctl restart docker</code> to clear all proxy processes</td>
+    </tr>
+    <tr>
+      <td>inotify watch limit</td>
+      <td>Default Linux kernel limit too low</td>
+      <td><code class="language-plaintext highlighter-rouge">echo fs.inotify.max_user_watches=524288 \| sudo tee -a /etc/sysctl.conf</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Documenting these issues is deliberate — troubleshooting is core SOC work, and the ability to methodically diagnose and resolve infrastructure problems is as important as the analysis itself.</p>
+
+<hr />
+
+<h2 id="lessons-learned">Lessons Learned</h2>
+
+<ul>
+  <li><strong>All three auth checks failing simultaneously is a strong signal</strong> — SPF NONE + DKIM NONE + DMARC NONE in combination with a mismatched Reply-To is near-conclusive for phishing</li>
+  <li><strong>Cloud IP addresses are not clean by default</strong> — Azure and AWS IPs appear in spam regularly because attackers spin up cheap VMs specifically to send phishing at scale</li>
+  <li><strong>Compromised legitimate domains are harder to block</strong> — blocking <code class="language-plaintext highlighter-rouge">eleganteviaggio.it</code> would have false-positive risk; blocking the specific subdomain or IP is more precise</li>
+  <li><strong>eml_analyzer is a strong PhishTool replacement</strong> — fully offline, no account needed, OLE macro detection is a genuine advantage for attachment-heavy campaigns</li>
+  <li><strong>Self-hosting analysis tools adds a layer of operational security</strong> — nothing about the investigation is leaked to third-party platforms during triage</li>
+</ul>
+
+<hr />
+
+<h2 id="tech-stack">Tech Stack</h2>
+
+<p>eml_analyzer Docker MxToolbox URLScan.io VirusTotal AbuseIPDB Any.Run Hybrid Analysis Shodan CyberChef Python Ubuntu VirtualBox MITRE ATT&amp;CK</p>
+
+  </div>
+
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer">
+  <div style="text-align:center; padding: 1em; font-size: 0.9em;">
+    © 2026 Mauro Sunda · Cybersecurity Portfolio  
+    <br>
+    <a href="https://github.com/Asm0d3us5">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/mauro-sunda-29aa02263">LinkedIn</a>
+  </div>
+</footer>
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
