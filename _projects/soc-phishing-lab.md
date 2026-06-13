@@ -4,6 +4,7 @@ excerpt: "Self-contained SOC environment for end-to-end phishing email analysis 
 date: 2026-06-13
 header:
   image: /assets/images/projects/soc-phishing-lab-banner.jpg
+  teaser: /assets/images/projects/usb-forensics-banner.jpg
 tags:
   - DFIR
   - SOC

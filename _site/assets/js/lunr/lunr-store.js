@@ -33,5 +33,5 @@ var store = [{
         "excerpt":"DFIR SOC Phishing Docker Python Threat Intel MITRE ATT&amp;CK Intermediate Personal Lab Overview A self-contained Security Operations Centre (SOC) lab built on Ubuntu in VirtualBox, designed to analyse real phishing emails end-to-end using exclusively free and open-source tools. The lab covers every phase of a real analyst workflow — from...","categories": ["Personal Lab"],
         "tags": ["DFIR","SOC","Phishing","Docker","Python","Threat Intel","MITRE ATT&CK","Email Forensics"],
         "url": "/projects/soc-phishing-lab/",
-        "teaser": null
+        "teaser": "/assets/images/projects/usb-forensics-banner.jpg"
       }]
