@@ -2,8 +2,7 @@
 title: "SOC Phishing Analysis Lab"
 date: 2026-06-13
 excerpt: "Self-contained SOC environment for end-to-end phishing email analysis using free and open-source tools — eml_analyzer, VirusTotal, URLScan, AbuseIPDB, sandboxing, and a custom Python IOC report generator."
-header:
-  teaser: /assets/images/projects/soc-phishing-lab-banner.jpg
+image: /assets/images/projects/soc-phishing-lab-banner.jpg
 tags: [DFIR,SOC,Phishing,Docker,Python,Threat Intel,MITRE ATT&CK,Email Forensics]
 difficulty: Intermediate
 category: Personal Lab
