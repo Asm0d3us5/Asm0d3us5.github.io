@@ -34,4 +34,10 @@ var store = [{
         "tags": ["DFIR","SOC","Phishing","Docker","Python","Threat Intel","MITRE ATT&CK","Email Forensics"],
         "url": "/projects/soc-phishing-lab/",
         "teaser": null
+      },{
+        "title": "LLM Prompt Injection Detection & Analysis Platform",
+        "excerpt":"Overview Prompt injection is one of the few attack classes that’s genuinely new to LLM-era security — it doesn’t map cleanly onto existing SOC tooling, and most detection advice online is either vague or unevaluated regex with no numbers behind it. This project builds a detector I could actually defend...","categories": [],
+        "tags": ["Python","Machine Learning","AI Security","MITRE ATLAS","FastAPI","SOC","Prompt Injection"],
+        "url": "/projects/llm-prompt-injection-detector/",
+        "teaser": null
       }]
