@@ -342,7 +342,7 @@ body {
   border: 1px solid rgba(255, 193, 7, 0.3);
 }
 
-.difficulty-hard { 
+.difficulty-advanced { 
   background: rgba(220, 53, 69, 0.15);
   color: #dc3545;
   border: 1px solid rgba(220, 53, 69, 0.3);
@@ -376,7 +376,7 @@ body {
   color: #ffd93d;
 }
 
-[data-theme="dark"] .difficulty-hard {
+[data-theme="dark"] .difficulty-advanced {
   background: rgba(220, 53, 69, 0.2);
   color: #ff6b7a;
 }
