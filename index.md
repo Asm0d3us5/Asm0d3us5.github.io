@@ -51,7 +51,7 @@ title: "Cybersecurity | Portfolio"
 <div class="section-label">// featured projects</div>
 
 <div class="portfolio-grid">
-{% assign featured = site.projects | slice: 0, 3 %}
+{% assign featured = site.projects | sort: 'date' | reverse | slice: 0, 3 %}
 {% for project in featured %}
   <div class="portfolio-card">
     <a href="{{ project.url }}">
