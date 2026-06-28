@@ -7,7 +7,8 @@ permalink: /projects/
 ## Portfolio Projects
 
 <div class="portfolio-grid">
-{% for project in site.projects %}
+{% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+{% for project in sorted_projects %}
   <div class="portfolio-card">
     <a href="{{ project.url }}">
       {% if project.image %}
