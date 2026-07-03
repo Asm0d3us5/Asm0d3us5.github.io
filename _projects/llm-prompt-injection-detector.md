@@ -6,7 +6,7 @@ excerpt: "Built a hybrid rule-based + ML detection system for LLM prompt injecti
 tags: [Python, Machine Learning, AI Security, MITRE ATLAS, FastAPI, SOC, Prompt Injection]
 difficulty: Advanced
 platform: Personal Project
-image: /assets/images/projects/prompt-injection-banner.jpg
+image: /assets/images/projects/prompt-injection-banner.jpg 
 toc: true
 ---
 
