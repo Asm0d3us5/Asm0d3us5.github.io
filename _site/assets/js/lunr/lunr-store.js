@@ -18,7 +18,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Investigating Computer Fraud — USB Forensics",
-        "excerpt":"Overview This project was completed as part of SIT282 Computer Forensics and Investigations at Deakin University. It simulates a real-world computer fraud investigation involving a USB drive — covering the full forensic workflow from evidence acquisition through to data validation and password recovery. Unit Computer Forensics InstitutionDeakin University DateMarch 2025...","categories": [],
+        "excerpt":"Overview This project was completed as part of SIT282 Computer Forensics and Investigations at Deakin University. It simulates a real-world computer fraud investigation involving a USB drive covering the full forensic workflow from evidence acquisition through to data validation and password recovery. Unit Computer Forensics InstitutionDeakin University DateMarch 2025 Step...","categories": [],
         "tags": ["DFIR","Forensics","Autopsy","FTK","Linux","Python"],
         "url": "/projects/usb-forensics/",
         "teaser": null

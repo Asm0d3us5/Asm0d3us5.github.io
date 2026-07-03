@@ -16,7 +16,7 @@ outcomes:
 
 ## Overview
 
-This project was completed as part of **SIT282 Computer Forensics and Investigations** at Deakin University. It simulates a real-world computer fraud investigation involving a USB drive — covering the full forensic workflow from evidence acquisition through to data validation and password recovery.
+This project was completed as part of **SIT282 Computer Forensics and Investigations** at Deakin University. It simulates a real-world computer fraud investigation involving a USB drive covering the full forensic workflow from evidence acquisition through to data validation and password recovery.
 
 <div class="project-meta-grid">
   <div class="meta-item"><span class="meta-label">Unit</span><span class="meta-val"> Computer Forensics</span></div>
@@ -28,7 +28,7 @@ This project was completed as part of **SIT282 Computer Forensics and Investigat
 
 ## Step 1 — Data Preparation
 
-To simulate a real fraud scenario, two files were created on a USB drive — one Word document (`223756188.docx`) and one Excel spreadsheet (`StudentID`) — alongside a photo (`StudentID.jpg`).
+To simulate a real fraud scenario, two files were created on a USB drive one Word document (`223756188.docx`) and one Excel spreadsheet (`StudentID`) alongside a photo (`StudentID.jpg`).
 
 The following modifications were made to introduce forensic artefacts:
 
@@ -55,7 +55,7 @@ sudo dcfldd if=/dev/sdb of=/mnt/data/usb_image.dd \
 
 | Flag | Purpose |
 |---|---|
-| `if=/dev/sdb` | Input source — the USB device |
+| `if=/dev/sdb` | Input source the USB device |
 | `of=usb_image.dd` | Output raw DD image |
 | `bs=4M` | Read in 4 MB chunks for efficiency |
 | `hash=sha256` | Calculate SHA-256 during copy |
@@ -105,7 +105,7 @@ foremost -t jpg,png -i USB_IMAGE.E01 -o /home/user/Recover_images/
 | `-i USB_IMAGE.E01` | Input forensic image |
 | `-o Recover_images/` | Output directory for recovered files |
 
-Foremost recovered files by their file signatures (magic bytes) rather than filesystem metadata — effective even when directory entries are overwritten.
+Foremost recovered files by their file signatures (magic bytes) rather than filesystem metadata effective even when directory entries are overwritten.
 
 ### Verifying Changed File Extensions
 
@@ -117,7 +117,7 @@ The Excel file had its extension manually changed. Two methods identified the tr
 ```bash
 file -i Recover_images/*
 ```
-Output confirmed `StudentID.jpg` was actually a spreadsheet — true file type regardless of extension.
+Output confirmed `StudentID.jpg` was actually a spreadsheet true file type regardless of extension.
 
 ---
 
@@ -134,7 +134,7 @@ binwalk -e PhotoN1.png
 binwalk -e StudentID.jpg
 ```
 
-`StudentID.jpg` revealed embedded ZIP archive data containing multiple XML files — consistent with an Office Open XML document embedded inside a JPEG. `PhotoN1.png` showed compressed data at offset `0x4B`.
+`StudentID.jpg` revealed embedded ZIP archive data containing multiple XML files consistent with an Office Open XML document embedded inside a JPEG. `PhotoN1.png` showed compressed data at offset `0x4B`.
 
 ### Password Recovery — John the Ripper
 
@@ -150,7 +150,7 @@ The Word document was password-protected. Recovery process:
 john --mask=S223756188?d hash.txt
 ```
 
-The mask `S223756188?d` constrained the search to the known student ID prefix followed by digits — targeting the likely password structure. John the Ripper successfully cracked the password.
+The mask `S223756188?d` constrained the search to the known student ID prefix followed by digits targeting the likely password structure. John the Ripper successfully cracked the password.
 
 **Recovery techniques compared:**
 
@@ -164,7 +164,7 @@ The mask `S223756188?d` constrained the search to the known student ID prefix fo
 
 ## Step 5 — Data Validation
 
-Hash validation confirms the forensic image is an exact, unaltered copy of the original drive — critical for chain of custody and court admissibility.
+Hash validation confirms the forensic image is an exact, unaltered copy of the original drive critical for chain of custody and court admissibility.
 
 **FTK Imager** generated checksums automatically at acquisition time:
 
@@ -184,7 +184,7 @@ sudo sha256sum usb_image.dd
 cat usb_hash.txt
 ```
 
-Both hashes matched — confirming no data was modified between acquisition and analysis.
+Both hashes matched confirming no data was modified between acquisition and analysis.
 
 ---
 
