@@ -8,6 +8,10 @@ difficulty: Intermediate
 platform: Deakin SIT282
 image: /assets/images/projects/usb-forensics-banner.jpg
 toc: true
+outcomes:
+  - "Recovered 3 deleted artefacts including extension-spoofed files"
+  - "Cracked password-protected DOCX using John the Ripper mask attack"
+  - "Verified evidence integrity via MD5 + SHA-256 — chain of custody maintained"
 ---
 
 ## Overview

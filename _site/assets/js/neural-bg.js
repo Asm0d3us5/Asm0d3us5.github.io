@@ -7,14 +7,14 @@
   'use strict';
 
   var CONFIG = {
-    nodeCount: 110,       // more nodes = denser network across full page
+    nodeCount: 55,       // more nodes = denser network across full page
     maxDist: 200,        // longer connections for wider spread
     nodeMinR: 1.5,
     nodeMaxR: 3.5,
-    speed: 0.35,         // slightly slower = more elegant
+    speed: 0.22,         // slightly slower = more elegant
     colorA: [74, 177, 255],
     colorB: [163, 113, 247],
-    lineAlpha: 0.22,
+    lineAlpha: 0.18,
     nodeAlpha: 0.9,
     glowThreshold: 0.65,
   };

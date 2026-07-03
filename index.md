@@ -13,9 +13,10 @@ title: "Cybersecurity | Portfolio"
     <div class="hero-eyebrow">// cybersecurity portfolio</div>
     <h1 class="hero-name">Mauro Sunda</h1>
     <p class="hero-role">Cybersecurity Student &middot; Deakin University &middot; Melbourne</p>
-    <p class="hero-bio">DFIR specialist-in-training. Building forensics tooling, hunting threats through ELK and Wazuh, and documenting every lab along the way.</p>
+    <p class="hero-bio">Cybersecurity student at Deakin University focused on DFIR, SOC analysis, and AI security, building hands-on labs that turn alerts, logs, and forensic evidence into structured, actionable investigations.</p>
     <div class="hero-buttons">
-      <a href="/projects/" class="btn btn-primary"><i class="fas fa-folder-open"></i> View Projects</a>
+      <a href="/assets/files/mauro-sunda-cv.pdf" class="btn btn-primary" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Resume</a>
+      <a href="/projects/" class="btn btn-secondary"><i class="fas fa-folder-open"></i> Projects</a>
       <a href="https://github.com/Asm0d3us5" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
       <a href="/blog/" class="btn btn-secondary"><i class="fas fa-pen"></i> Blog</a>
     </div>
@@ -65,6 +66,13 @@ title: "Cybersecurity | Portfolio"
         {% if project.difficulty %}<span class="difficulty-badge difficulty-{{ project.difficulty | downcase }}">{{ project.difficulty }}</span>{% endif %}
         {% if project.platform %}<span class="platform-badge">{{ project.platform }}</span>{% endif %}
         <p>{{ project.excerpt | strip_html | truncate: 110 }}</p>
+        {% if project.outcomes %}
+        <ul class="project-outcomes">
+          {% for outcome in project.outcomes %}
+            <li>{{ outcome }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
         {% if project.tags %}
         <div class="portfolio-tags">
           {% for tag in project.tags limit: 4 %}

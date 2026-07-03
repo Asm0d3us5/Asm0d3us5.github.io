@@ -1,8 +1,10 @@
 title: Mauro Sunda
+name: "Mauro Sunda"
 description: Cybersecurity Portfolio | DFIR | Network Security | CTFs
 email: MauroSunda@protonmail.com
 locale: en-AU
 timezone: "Australia/Melbourne"
+url: "https://asm0d3us5.github.io"
 
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
@@ -18,7 +20,7 @@ plugins:
 author:
   name: Mauro Sunda
   avatar: "/assets/images/profile.jpg"
-  bio: "Cybersecurity student passionate about DFIR, CTFs, and security research."
+  bio: "Cybersecurity student at Deakin University (WAM 79 · TryHackMe Top 1%). Focused on DFIR, SOC analysis, and AI security."
   location: "Melbourne, Australia"
   email: "MauroSunda@protonmail.com"
   links:
@@ -46,7 +48,7 @@ defaults:
 
 # Nav links shown in masthead
 # Minimal Mistakes reads this as the primary navigation
-masthead_title: " "   # keeps the site title out of the masthead bar
+masthead_title: "Mauro Sunda"   # visible brand in nav bar
 
 # header_pages drives the nav on splash/default layouts
 header_pages:

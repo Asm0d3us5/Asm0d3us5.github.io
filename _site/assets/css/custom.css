@@ -15,6 +15,7 @@
    11. Responsive Design
    12. Remove Underlines from Links
    13. Round the profile picture
+   14. Project Outcomes List
    ======================================== */
 
 
@@ -1529,4 +1530,31 @@ pre code {
 /* Tech stack tags inside project-body */
 .project-body .skills-grid {
   margin: 0.75rem 0 1rem;
+}
+
+/* ========================================
+   14. PROJECT OUTCOMES LIST
+   ======================================== */
+
+.project-outcomes {
+  margin: 0.5rem 0 0.75rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.project-outcomes li {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #a0a0a0);
+  padding: 0.15rem 0 0.15rem 1.2rem;
+  position: relative;
+  line-height: 1.4;
+}
+
+.project-outcomes li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: 700;
+  font-size: 0.75rem;
 }
