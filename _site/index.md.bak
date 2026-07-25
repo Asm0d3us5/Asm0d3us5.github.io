@@ -82,11 +82,37 @@
 
 
 
-    <!-- Custom CSS for enhanced portfolio design -->
+    <!-- ========================================
+     OPEN GRAPH & SEO META TAGS
+     File: _includes/head/custom.html
+     ======================================== -->
+
+<!-- Custom CSS -->
 <link rel="stylesheet" href="/assets/css/custom.css">
 
-<!-- Preload Font Awesome for icons -->
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+<link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+<link rel="apple-touch-icon" href="/assets/images/favicon.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Mauro Sunda | Cybersecurity Portfolio">
+<meta property="og:description" content="SOC Analyst | DFIR | AI Security | Network Forensics — hands-on labs, forensic investigations, and security tooling.">
+<meta property="og:image" content="https://asm0d3us5.github.io/assets/images/portfolio-preview.jpg">
+<meta property="og:url" content="https://asm0d3us5.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mauro Sunda">
+<meta property="og:locale" content="en_AU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mauro Sunda | Cybersecurity Portfolio">
+<meta name="twitter:description" content="SOC Analyst | DFIR | AI Security | Network Forensics">
+<meta name="twitter:image" content="https://asm0d3us5.github.io/assets/images/portfolio-preview.jpg">
+
+<!-- Extra SEO -->
+<meta name="author" content="Mauro Sunda">
+<meta name="robots" content="index, follow">
 
   </head>
 
