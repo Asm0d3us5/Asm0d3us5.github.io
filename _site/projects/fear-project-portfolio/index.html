@@ -1,0 +1,498 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>FEAR — Forensic Evasion and Anomaly Recognition -</title>
+<meta name="description" content="Flow-metadata-only network anomaly detection comparing three unsupervised ML models, with SHAP explainability, adversarial robustness testing, and a containerized Streamlit dashboard.">
+
+
+  <meta name="author" content="Mauro Sunda">
+  
+  <meta property="article:author" content="Mauro Sunda">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="FEAR — Forensic Evasion and Anomaly Recognition">
+<meta property="og:url" content="http://localhost:4000/projects/fear-project-portfolio/">
+
+
+  <meta property="og:description" content="Flow-metadata-only network anomaly detection comparing three unsupervised ML models, with SHAP explainability, adversarial robustness testing, and a containerized Streamlit dashboard.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-09-23T00:00:00+10:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/fear-project-portfolio/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Mauro Sunda",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- ========================================
+     OPEN GRAPH & SEO META TAGS
+     File: _includes/head/custom.html
+     ======================================== -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/assets/images/favicon.png">
+<link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+<link rel="apple-touch-icon" href="/assets/images/favicon.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Mauro Sunda | Cybersecurity Portfolio">
+<meta property="og:description" content="SOC Analyst | DFIR | AI Security | Network Forensics — hands-on labs, forensic investigations, and security tooling.">
+<meta property="og:image" content="https://asm0d3us5.github.io/assets/images/portfolio-preview.jpg">
+<meta property="og:url" content="https://asm0d3us5.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mauro Sunda">
+<meta property="og:locale" content="en_AU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mauro Sunda | Cybersecurity Portfolio">
+<meta name="twitter:description" content="SOC Analyst | DFIR | AI Security | Network Forensics">
+<meta name="twitter:image" content="https://asm0d3us5.github.io/assets/images/portfolio-preview.jpg">
+
+<!-- Extra SEO -->
+<meta name="author" content="Mauro Sunda">
+<meta name="robots" content="index, follow">
+
+  </head>
+
+  <body class="layout--project">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Mauro Sunda
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      <div class="project-wrapper">
+
+  <div class="portfolio-card project-card">
+
+    
+      <img src="/assets/images/projects/fear-banner.jpg" alt="FEAR — Forensic Evasion and Anomaly Recognition">
+    
+
+    <div class="portfolio-content">
+      <h1>FEAR — Forensic Evasion and Anomaly Recognition</h1>
+
+      
+      <div class="portfolio-tags">
+        
+          
+          
+            <span class="skill-tag skill-net">Network Forensics</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">Machine Learning</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">Anomaly Detection</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">Explainable AI</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">PyTorch</span>
+          
+        
+          
+          
+            <span class="skill-tag skill-net">Docker</span>
+          
+        
+      </div>
+      
+
+      
+      <div style="margin-top: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <span class="difficulty-badge difficulty-advanced">Advanced</span>
+        <span class="platform-badge">Network Forensic</span>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="project-body">
+    <h2 id="overview">Overview</h2>
+
+<p>This project was completed as part of <strong>SIT326 Advanced Network Analytics and Forensics</strong> at Deakin University. FEAR is a network anomaly detection system that works entirely from flow-level metadata packet size, timing, direction, and duration with no payload inspection. That makes it viable in environments where traffic is encrypted and deep packet inspection can’t reach: TLS 1.3, encrypted DNS, VPN tunnels.</p>
+
+<p>The project runs three unsupervised models head-to-head, layers on SHAP explainability and adversarial robustness testing, and ships the result as a Docker-containerized Streamlit dashboard for interactive triage.</p>
+
+<div class="project-meta-grid">
+  <div class="meta-item"><span class="meta-label">Unit</span><span class="meta-val">Advanced Network Analytics and Forensics</span></div>
+  <div class="meta-item"><span class="meta-label">Institution</span><span class="meta-val">Deakin University</span></div>
+  <div class="meta-item"><span class="meta-label">Datasets</span><span class="meta-val">CIC-IDS2017, CIC-IoT2023</span></div>
+</div>
+
+<hr />
+
+<h2 id="step-1--research-design--hypotheses">Step 1 — Research Design &amp; Hypotheses</h2>
+
+<p>Three hypotheses framed the project:</p>
+
+<ul>
+  <li><strong>H1</strong> — flow-level metadata alone is sufficient for anomaly detection (no payload required)</li>
+  <li><strong>H2</strong> — the three model families perform meaningfully differently from one another, not just in headline accuracy but in failure mode</li>
+  <li><strong>H3</strong> — small, targeted feature perturbations can measurably reduce detection accuracy</li>
+</ul>
+
+<p>Scope was tutor-confirmed: combining two topic areas (anomaly detection + adversarial robustness) is acceptable at this level, two datasets are sufficient for a PASS-level proof of concept, and three unsupervised models is a reasonable comparison set no cuts needed.</p>
+
+<p><strong>Environment:</strong> Ubuntu VM (VirtualBox), 4 CPU / 12 GB RAM / 50 GB.</p>
+
+<hr />
+
+<h2 id="step-2--model-training">Step 2 — Model Training</h2>
+
+<p>All three models were trained on identical flow-level features extracted from <strong>CIC-IDS2017</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Isolation Forest</td>
+      <td>Tree-based ensemble</td>
+      <td>scikit-learn implementation</td>
+    </tr>
+    <tr>
+      <td>One-Class SVM</td>
+      <td>Kernel-based boundary</td>
+      <td>Evaluated on a subsample — documented limitation due to scaling constraints</td>
+    </tr>
+    <tr>
+      <td>Autoencoder</td>
+      <td>Deep neural network</td>
+      <td>PyTorch, architecture <code class="language-plaintext highlighter-rouge">78-32-16-8-16-32-78</code>, StandardScaler-normalized inputs, MSE reconstruction loss</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Autoencoder architecture:
+Input(78) → 32 → 16 → 8 (bottleneck) → 16 → 32 → Output(78)
+Loss: MSE  |  Optimizer: Adam (lr=0.001)  |  Scaler: StandardScaler
+</code></pre></div></div>
+
+<p><img src="/assets/images/projects/fear/autoencoder_reconstruction_error.png" alt="Autoencoder reconstruction error distribution — normal vs. anomalous flows" /></p>
+
+<p>The Autoencoder was the strongest performer overall, prioritizing <strong>recall over precision</strong> the correct tradeoff for forensic triage, where catching more true threats is worth tolerating some false alarms. Isolation Forest placed second, One-Class SVM third.</p>
+
+<hr />
+
+<h2 id="step-3--cross-dataset-generalization">Step 3 — Cross-Dataset Generalization</h2>
+
+<p>To test H1 beyond the training distribution, all three models were re-evaluated on <strong>CIC-IoT2023</strong> without retraining, then again after recalibration.</p>
+
+<p>Generalization did <strong>not</strong> hold even after recalibration. Rather than treating this as a failed experiment, it’s framed as a genuine finding: it demonstrates that H3-style complexity (small distributional shifts) can degrade detection just as much as deliberate adversarial perturbation, and it’s a legitimate limitation to name explicitly in the writeup rather than let aggregate metrics obscure.</p>
+
+<p><img src="/assets/images/projects/fear/domain_shift_comparison.png" alt="Per-model performance on CIC-IDS2017 vs. CIC-IoT2023" /></p>
+
+<p><strong>Open item before final writeup:</strong> per-attack-type recall (especially rare classes like Heartbleed) hasn’t been checked , aggregate metrics can mask poor performance on edge cases like brute-force traffic, which turned out to be a feature-representation blind spot rather than a model-capacity issue.</p>
+
+<hr />
+
+<h2 id="step-4--explainability-shap">Step 4 — Explainability (SHAP)</h2>
+
+<p><strong>GradientExplainer</strong> was chosen over DeepExplainer after DeepExplainer failed an additivity check (SHAP values didn’t sum back to the model’s output delta a correctness requirement, not a style preference).</p>
+
+<p><img src="/assets/images/projects/fear/shap_summary.png" alt="SHAP summary plot — feature impact on anomaly score" /></p>
+
+<p><img src="/assets/images/projects/fear/shap_bar_importance.png" alt="SHAP feature importance ranking" /></p>
+
+<p><img src="/assets/images/projects/fear/shap_waterfall_single_flow.png" alt="SHAP waterfall — explanation for a single flagged flow" /></p>
+
+<p>SHAP output was also used as an attack surface in Step 5 below, not just an interpretability layer.</p>
+
+<hr />
+
+<h2 id="step-5--adversarial-robustness-testing">Step 5 — Adversarial Robustness Testing</h2>
+
+<p>Four attack strategies were run against the trained models to test H3:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attack</th>
+      <th>Approach</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>White-box gradient attack</td>
+      <td>Perturbs input features along the model’s own gradient</td>
+      <td><strong>~35% evasion</strong> the only attack that meaningfully worked</td>
+    </tr>
+    <tr>
+      <td>SHAP-targeted attack</td>
+      <td>Perturbs the features SHAP ranks as most influential</td>
+      <td>Failed</td>
+    </tr>
+    <tr>
+      <td>Random noise</td>
+      <td>Unstructured perturbation</td>
+      <td>Failed</td>
+    </tr>
+    <tr>
+      <td>Full feature replacement</td>
+      <td>Wholesale substitution of feature values</td>
+      <td>Failed</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The gap between the white-box gradient attack and everything else is the headline result: explainability output (SHAP rankings) didn’t translate into an effective attack vector on its own, which is a useful, non-obvious finding for anyone assuming “explainable = exploitable.”</p>
+
+<p><img src="/assets/images/projects/fear/robustness_evasion_comparison.png" alt="Evasion rate comparison across attack types" /></p>
+
+<hr />
+
+<h2 id="step-6--dashboard--deployment">Step 6 — Dashboard &amp; Deployment</h2>
+
+<p>Results were packaged into an interactive <strong>Streamlit</strong> dashboard, containerized with <strong>Docker</strong> for reproducible deployment:</p>
+
+<ul>
+  <li>Model comparison view (Isolation Forest vs. One-Class SVM vs. Autoencoder)</li>
+  <li>Flagged Flows table, filterable by outcome (All / Correctly detected anomalies / Missed anomalies / Benign flows)</li>
+  <li>Per-flow SHAP explanations for flagged anomalies (“Explain a Flow” panel)</li>
+  <li>Adversarial test results panel</li>
+</ul>
+
+<p><img src="/assets/images/projects/fear/dashboard-flagged-flows.png" alt="FEAR dashboard — flagged flows, filterable by detection outcome" /></p>
+
+<p><img src="/assets/images/projects/fear/dashboard-explain-flow.png" alt="FEAR dashboard — per-flow SHAP waterfall explanation" /></p>
+
+<hr />
+
+<h2 id="outcomes">Outcomes:</h2>
+<ul>
+  <li>“Compared three unsupervised models (Isolation Forest, One-Class SVM, Autoencoder) on identical flow-level features”</li>
+  <li>“Achieved detection using flow metadata alone — no payload decryption required”</li>
+  <li>“Quantified adversarial robustness: ~35% evasion under white-box gradient attack, 0% under SHAP-targeted / random-noise / full-replacement attacks”</li>
+  <li>“Shipped an explainable, containerized Streamlit dashboard for interactive triage”</li>
+</ul>
+
+<hr />
+
+<h2 id="key-findings">Key Findings</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Area</th>
+      <th>Finding</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Metadata sufficiency (H1)</td>
+      <td>Flow-level metadata alone detects the majority of attack traffic, with no payload access needed</td>
+    </tr>
+    <tr>
+      <td>Model comparison (H2)</td>
+      <td>The three models diverge in failure mode, not just accuracy, Autoencoder leads on recall</td>
+    </tr>
+    <tr>
+      <td>Blind spot</td>
+      <td>Brute-force detection gap is a feature-representation problem, not a model-capacity limitation</td>
+    </tr>
+    <tr>
+      <td>Generalization</td>
+      <td>Cross-dataset performance on CIC-IoT2023 did not fully recover even after recalibration</td>
+    </tr>
+    <tr>
+      <td>Adversarial robustness (H3)</td>
+      <td>Only white-box gradient attacks succeeded (~35% evasion); SHAP-targeted, noise, and replacement attacks all failed</td>
+    </tr>
+    <tr>
+      <td>Explainability</td>
+      <td>GradientExplainer required over DeepExplainer due to a failed additivity check</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="lessons-learned">Lessons Learned</h2>
+
+<ul>
+  <li><strong>Recall-first framing matters in forensic contexts</strong> optimizing for accuracy alone would have buried the Autoencoder’s actual value</li>
+  <li><strong>A blind spot isn’t always a model problem</strong> the brute-force gap was a feature-representation issue, and treating it as such changes how you’d fix it</li>
+  <li><strong>Explainability tools need correctness checks of their own</strong> DeepExplainer’s failed additivity check was a reminder that interpretability output can be silently wrong</li>
+  <li><strong>Generalization failure is still a result</strong> reporting it as a limitation, with a clear mechanism, is stronger than hiding it behind aggregate metrics</li>
+  <li><strong>Not all attack surfaces are equal</strong> having SHAP explanations available didn’t make the model meaningfully easier to evade</li>
+</ul>
+
+<hr />
+
+<h2 id="tech-stack">Tech Stack</h2>
+
+<div class="skills-grid" style="margin: 1rem 0;">
+  <span class="skill-tag skill-dfir">PyTorch</span>
+  <span class="skill-tag skill-dfir">scikit-learn</span>
+  <span class="skill-tag skill-dfir">SHAP</span>
+  <span class="skill-tag skill-net">Streamlit</span>
+  <span class="skill-tag skill-lang">Docker</span>
+  <span class="skill-tag skill-siem">CIC-IDS2017</span>
+  <span class="skill-tag skill-siem">CIC-IoT2023</span>
+  <span class="skill-tag skill-net">Ubuntu / VirtualBox</span>
+</div>
+
+<hr />
+
+<p><a href="https://github.com/Asm0d3us5/FEAR">View on GitHub</a></p>
+
+  </div>
+
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer">
+  <div style="text-align:center; padding: 1em; font-size: 0.9em;">
+    © 2026 Mauro Sunda · Cybersecurity Portfolio  
+    <br>
+    <a href="https://github.com/Asm0d3us5">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/mauro-sunda-29aa02263">LinkedIn</a>
+  </div>
+</footer>
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

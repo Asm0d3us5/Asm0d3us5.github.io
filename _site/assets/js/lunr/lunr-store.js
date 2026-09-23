@@ -40,4 +40,10 @@ var store = [{
         "tags": ["Python","Machine Learning","AI Security","MITRE ATLAS","FastAPI","SOC","Prompt Injection"],
         "url": "/projects/llm-prompt-injection-detector/",
         "teaser": null
+      },{
+        "title": "FEAR — Forensic Evasion and Anomaly Recognition",
+        "excerpt":"Overview This project was completed as part of SIT326 Advanced Network Analytics and Forensics at Deakin University. FEAR is a network anomaly detection system that works entirely from flow-level metadata packet size, timing, direction, and duration with no payload inspection. That makes it viable in environments where traffic is encrypted...","categories": [],
+        "tags": ["Network Forensics","Machine Learning","Anomaly Detection","Explainable AI","PyTorch","Docker"],
+        "url": "/projects/fear-project-portfolio/",
+        "teaser": null
       }]
